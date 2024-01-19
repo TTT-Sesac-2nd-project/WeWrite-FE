@@ -1,9 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.WeWrite" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.WeWrite" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textViewStyle">@style/CustomFontStyle</item>
+        <item name="android:colorBackground">@color/white</item>
     </style>
 
     <style name="Theme.WeWrite" parent="Base.Theme.WeWrite" />
+
+    <style name="CustomFontStyle">
+        <item name="android:fontFamily">@font/pretendardvariable</item>
+    </style>
+
+    <style name="CustomFontStyleBold">
+        <item name="android:fontFamily">@font/pretendard_bold</item>
+    </style>
 </resources>
