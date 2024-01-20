@@ -4,5 +4,9 @@
     <!-- SplashActivity -->
     <string name="splash_text">우리의 이야기를 그리는 지도</string>
 
+    <!-- LoginActivity -->
+    <string name="kakao_login_text">카카오로 이용하기</string>
+    <string name="kakao_app_key">ed265d8441b7fc04f76b7acc4307cb3a</string>
+    <string name="kakao_app_key2">kakaoed265d8441b7fc04f76b7acc4307cb3a</string>
 
 </resources>
