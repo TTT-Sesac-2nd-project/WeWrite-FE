@@ -1,4 +1,4 @@
-package com.wewrite.android.Login
+package com.wewrite.android.ui.Login
 
 import android.content.ContentValues
 import android.content.Intent
@@ -10,8 +10,7 @@ import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
-import com.wewrite.android.MainActivity
-import com.wewrite.android.R
+import com.wewrite.android.ui.MainActivity
 import com.wewrite.android.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {

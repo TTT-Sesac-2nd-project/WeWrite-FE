@@ -9,4 +9,11 @@
     <string name="kakao_app_key">ed265d8441b7fc04f76b7acc4307cb3a</string>
     <string name="kakao_app_key2">kakaoed265d8441b7fc04f76b7acc4307cb3a</string>
 
+    <!-- OnBoardingActivity -->
+    <string name="onboarding1_title">소중한 추억들을\n 지도에 기록해 보아요!</string>
+    <string name="onboarding1_text">내가 찍은 사진과 그날의\n 기록을 지도에서 한눈에 확인해요!</string>
+    <string name="onboarding_next">다음</string>
+
+
+
 </resources>
