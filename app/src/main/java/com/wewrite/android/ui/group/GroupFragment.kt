@@ -1,4 +1,4 @@
-package com.wewrite.android.group
+package com.wewrite.android.ui.group
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
