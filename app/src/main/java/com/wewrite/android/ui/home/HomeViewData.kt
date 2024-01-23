@@ -6,11 +6,14 @@ data class GroupData(
 )
 
 data class PostData(
-    val postImg: Int,
+    val postImg: String,
+    val postUser: String,
+    val postUserImg: Int,
+    val postGroup: String,
     val postTitle: String,
-    val postContent: String,
-    val postDate: String,
-    val postLike: Int,
-    val postComment: Int,
-    val postShare: Int,
+    val postLocation: String,
+    val postLike: Boolean,
+    val postReplyCount: Int,
+    val postViewCount: Int,
+    val postDate: String
 )

@@ -6,7 +6,9 @@
     <color name="BluePurple">#081154</color>
     <color name="yellow">#FEE500</color>
     <color name="Gray1">#ACACAC</color>
-    <color name="Gray4">#F1F1F1</color>s
+    <color name="Gray2">#3D3535</color>
+    <color name="Gray4">#F1F1F1</color>
     <color name="Gray5">#777777</color>
-    <color name="Gray6">#EFEFEF</color>
+    <color name="Gray6">#BDBCBC</color>
+    <color name="SkyBlue">#72BDFF</color>
 </resources>
