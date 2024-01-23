@@ -3,6 +3,7 @@ package com.wewrite.android.ui.onboarding
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.wewrite.android.api.data.OnBoardingData
 import com.wewrite.android.databinding.FragmentOnBoardingBinding
 
 class OnBoardingAdapter(private val onBoardingList: List<OnBoardingData>) :
