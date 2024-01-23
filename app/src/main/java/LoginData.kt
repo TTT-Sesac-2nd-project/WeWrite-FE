@@ -7,7 +7,7 @@ data class LoginResponse (
     val timeStamp: String,
     val code: Int,
     val status: String,
-    val data: List<UserData>
+    val data: UserData
 ) {
     @Parcelize
     data class UserData(

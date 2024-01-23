@@ -11,6 +11,7 @@ import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
+import com.wewrite.android.api.data.com.wewrite.android.ui.login.LoginModel
 import com.wewrite.android.ui.MainActivity
 import com.wewrite.android.databinding.ActivityLoginBinding
 import kotlinx.coroutines.runBlocking
@@ -69,7 +70,7 @@ class LoginActivity : AppCompatActivity() {
                             Log.e(ContentValues.TAG, response.toString())
                             // 서버로 전송 후의 동작을 여기에 추가
                             if (response.code == 200) {
-                                //TODO: sharedpreference에 토큰 저장
+                                LoginModel(this@LoginActivity).saveToken(response.data.accessToken)
                                 Log.e("tokenResponse", response.toString())
                             } else {
                                 Toast.makeText(this@LoginActivity, "로그인 에러, 다시 시도해주세요", Toast.LENGTH_SHORT).show()
