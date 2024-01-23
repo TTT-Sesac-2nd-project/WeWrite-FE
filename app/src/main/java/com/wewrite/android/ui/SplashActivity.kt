@@ -4,9 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
-import com.kakao.sdk.common.util.Utility
-import com.wewrite.android.ui.Login.LoginActivity
+import com.wewrite.android.ui.login.LoginActivity
 import com.wewrite.android.R
 
 class SplashActivity : AppCompatActivity() {

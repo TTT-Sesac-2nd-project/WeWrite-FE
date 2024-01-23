@@ -14,6 +14,17 @@
     <string name="onboarding1_text">내가 찍은 사진과 그날의\n 기록을 지도에서 한눈에 확인해요!</string>
     <string name="onboarding_next">다음</string>
 
+    <!-- HomeFragment -->
+    <string name="home_my_group">내 그룹</string>
+    <string name="home_post_text">최신 글</string>
 
+    <!-- GroupFragment -->
+    <string name="post_group">그룹</string>
+    <string name="post_user_name">승민2</string>
+    <string name="post_title">제육 맛집 다녀온 날</string>
+    <string name="post_location">압구정 김밥 장한평점</string>
+    <string name="post_reply_num">댓글 2 · </string>
+    <string name="post_view_num">조회수 12</string>
+    <string name="post_date">2024.01.17 </string>
 
 </resources>

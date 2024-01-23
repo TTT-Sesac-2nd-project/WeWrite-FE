@@ -7,7 +7,7 @@ import retrofit2.http.POST
 interface LoginService {
     @POST("user/issue-token")
     suspend fun kakaoLogin(
-        @Header("access_token") access_token: String
+        @Header("access-token") access_token: String
     ): LoginResponse
 }
 
