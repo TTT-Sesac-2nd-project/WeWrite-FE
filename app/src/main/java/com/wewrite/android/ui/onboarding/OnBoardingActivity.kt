@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.wewrite.android.R
+import com.wewrite.android.api.data.onBoardingList
 import com.wewrite.android.databinding.ActivityOnBoardingBinding
 import com.wewrite.android.ui.MainActivity
 

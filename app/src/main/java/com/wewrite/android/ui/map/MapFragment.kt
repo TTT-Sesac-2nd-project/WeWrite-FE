@@ -1,4 +1,4 @@
-package com.wewrite.android.map
+package com.wewrite.android.ui.map
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

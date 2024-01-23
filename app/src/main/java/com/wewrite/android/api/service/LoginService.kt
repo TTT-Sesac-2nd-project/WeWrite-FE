@@ -1,13 +1,14 @@
 package com.wewrite.android.api.service
 
-import com.wewrite.android.api.model.BaseResponse
+import com.wewrite.android.api.data.LoginResponse
+import retrofit2.http.Header
 import retrofit2.http.POST
-import retrofit2.http.Query
 
 interface LoginService {
-    @POST("/user/login")
-    suspend fun JWTCheck(
-        @Query("access_token") accessToken: String,
-    ): BaseResponse
-
+    @POST("user/issue-token")
+    suspend fun kakaoLogin(
+        @Header("access_token") access_token: String
+    ): LoginResponse
 }
+
+//@author: 이승민

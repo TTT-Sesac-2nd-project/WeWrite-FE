@@ -6,7 +6,7 @@ import com.wewrite.android.R
 import com.wewrite.android.databinding.ActivityMainBinding
 import com.wewrite.android.ui.group.GroupFragment
 import com.wewrite.android.ui.home.HomeFragment
-import com.wewrite.android.map.MapFragment
+import com.wewrite.android.ui.map.MapFragment
 import com.wewrite.android.ui.myPage.MyPageFragment
 
 class MainActivity : AppCompatActivity() {

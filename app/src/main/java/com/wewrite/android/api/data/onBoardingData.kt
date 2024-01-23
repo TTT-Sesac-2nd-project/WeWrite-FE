@@ -1,4 +1,4 @@
-package com.wewrite.android.ui.onboarding
+package com.wewrite.android.api.data
 
 import com.wewrite.android.R
 
