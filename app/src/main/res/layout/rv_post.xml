@@ -61,7 +61,9 @@
                     app:cardCornerRadius="999dp"
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    >
 
                     <ImageView
                         android:id="@+id/post_user_image"
@@ -101,10 +103,11 @@
                     </TextView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
                 <ImageButton
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:src="@drawable/vi_star_false"
                     android:background="@android:color/transparent"
+                    android:contentDescription="@string/post_title"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     >
