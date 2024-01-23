@@ -1,13 +1,11 @@
 package com.wewrite.android.ui.login
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.wewrite.android.R
 import com.wewrite.android.api.data.com.wewrite.android.ui.login.LoginModel
-import com.wewrite.android.ui.MainActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
