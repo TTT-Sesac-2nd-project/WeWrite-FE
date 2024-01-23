@@ -1,4 +1,4 @@
-package com.wewrite.android.ui.Login
+package com.wewrite.android.ui.login
 
 import LoginRepository
 import android.content.ContentValues
@@ -11,7 +11,6 @@ import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
-import com.wewrite.android.api.APIFactory
 import com.wewrite.android.ui.MainActivity
 import com.wewrite.android.databinding.ActivityLoginBinding
 import kotlinx.coroutines.runBlocking

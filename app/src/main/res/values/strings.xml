@@ -14,6 +14,11 @@
     <string name="onboarding1_text">내가 찍은 사진과 그날의\n 기록을 지도에서 한눈에 확인해요!</string>
     <string name="onboarding_next">다음</string>
 
+    <!-- HomeFragment -->
+    <string name="home_my_group">내 그룹</string>
+    <string name="home_post_text">최신 글</string>
 
+    <!-- GroupFragment -->
+    <string name="post_group">그룹</string>
 
 </resources>
