@@ -12,5 +12,7 @@
     <color name="Gray5">#777777</color>
     <color name="Gray6">#BDBCBC</color>
     <color name="Gray7">#EFEFEF</color>
+    <color name="Gray8">#8C8C8C</color>
+    <color name="Gray9">#F5F6F6</color>
     <color name="SkyBlue">#72BDFF</color>
 </resources>
