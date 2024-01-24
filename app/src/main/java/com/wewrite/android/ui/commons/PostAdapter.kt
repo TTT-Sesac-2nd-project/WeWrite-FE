@@ -1,4 +1,4 @@
-package com.wewrite.android.ui.home
+package com.wewrite.android.api.data.com.wewrite.android.ui.commons
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.wewrite.android.R
 import com.wewrite.android.databinding.RvPostBinding
 
-class HomePostAdapter(var PostList: List<PostData>): RecyclerView.Adapter<HomePostAdapter.ViewHolder>() {
+class PostAdapter(var PostList: List<PostData>): RecyclerView.Adapter<PostAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = RvPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
