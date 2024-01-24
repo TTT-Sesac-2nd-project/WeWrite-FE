@@ -7,8 +7,10 @@
     <color name="yellow">#FEE500</color>
     <color name="Gray1">#ACACAC</color>
     <color name="Gray2">#3D3535</color>
+    <color name="Gray3">#EDEDED</color>
     <color name="Gray4">#F1F1F1</color>
     <color name="Gray5">#777777</color>
     <color name="Gray6">#BDBCBC</color>
+    <color name="Gray7">#EFEFEF</color>
     <color name="SkyBlue">#72BDFF</color>
 </resources>
