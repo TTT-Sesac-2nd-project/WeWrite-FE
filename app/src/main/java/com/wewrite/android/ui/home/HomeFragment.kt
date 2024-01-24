@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wewrite.android.R
+import com.wewrite.android.api.data.com.wewrite.android.ui.commons.PostAdapter
+import com.wewrite.android.api.data.com.wewrite.android.ui.commons.PostData
 import com.wewrite.android.databinding.FragmentHomeBinding
 import com.wewrite.android.ui.commons.HomeGroupGridDecoration
 import com.wewrite.android.ui.commons.PostGridDecoration
@@ -34,7 +36,7 @@ class HomeFragment : Fragment() {
         recyclerViewList.layoutManager = GridLayoutManager(requireContext(),
             1, GridLayoutManager.VERTICAL, false)
 
-        val postAdapter = HomePostAdapter(postList)
+        val postAdapter = PostAdapter(postList)
         recyclerViewList.adapter = postAdapter
 
         recyclerViewList.addItemDecoration(PostGridDecoration(16))
