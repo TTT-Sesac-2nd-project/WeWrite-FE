@@ -1,4 +1,4 @@
-package com.wewrite.android.api.data
+package com.wewrite.android.api.data.com.wewrite.android.api.data
 
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize

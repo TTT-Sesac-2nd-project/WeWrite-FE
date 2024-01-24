@@ -1,5 +1,5 @@
 import com.wewrite.android.api.APIFactory
-import com.wewrite.android.api.data.LoginResponse
+import com.wewrite.android.api.data.com.wewrite.android.api.data.LoginResponse
 import com.wewrite.android.api.service.LoginService
 
 class LoginRepository(private val loginService: LoginService) {
