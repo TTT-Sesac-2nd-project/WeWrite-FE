@@ -44,5 +44,9 @@
     <string name="group_member">그룹 멤버</string>
     <string name="group_member_count">4</string>
 
+    <!-- GroupPageActivity -->
+    <string name="group_page_invite">초대하기</string>
+    <string name="group_page_post">그룹 글</string>
+
 
 </resources>
