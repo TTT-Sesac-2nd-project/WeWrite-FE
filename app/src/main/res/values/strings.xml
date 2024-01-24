@@ -39,4 +39,10 @@
     <!-- DetailActivity -->
     <string name="detail_post_content">오늘 압구정 김밥 가서 제육 먹었는데 레전드 맛집이었다 오늘 압구정 김밥 가서 제육 먹었는데 레전드 맛집이었다 오늘 압구정 김밥 가서 제육 먹었는데 레전드 맛집이었다 오늘 압구정 김밥 가서 제육 먹었는데 레전드 맛집이었다 오늘 압구정 김밥 가서 제육 먹었는데 레전드 맛집이었다 오늘 압구정 김밥 가서 제육 먹었는데 레전드 맛집이었다 오늘 압구정 김밥 가서 제육 먹었는데 레전드 맛집이었다 오늘 압구정 김밥 가서 제육 먹었는데 레전드 맛집이었다</string>
 
+    <!-- GroupManageFragment -->
+    <string name="group_manage_toolbar">그룹 관리</string>
+    <string name="group_member">그룹 멤버</string>
+    <string name="group_member_count">4</string>
+
+
 </resources>
