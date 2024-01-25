@@ -2,23 +2,33 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/navi_home"
-        app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@drawable/navi_home"
-        android:title="홈" />
+        android:title="@string/navi_home"
+        app:showAsAction="ifRoom"/>
+
     <item android:id="@+id/navi_map"
-        app:showAsAction="ifRoom"
+        android:enabled="true"
         android:icon="@drawable/navi_map"
-        android:title="지도" />
+        android:title="@string/navi_map"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/blank"
+        android:enabled="false"
+        app:showAsAction="never"
+        android:title="" />
+
     <item android:id="@+id/navi_group"
-        app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@drawable/navi_group"
-        android:title="그룹" />
+        android:title="@string/navi_group"
+        app:showAsAction="ifRoom"/>
+
     <item android:id="@+id/navi_mypage"
-        app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@drawable/navi_mypage"
-        android:title="마이페이지" />
+        android:title="@string/navi_mypage"
+        app:showAsAction="ifRoom"/>
 
 </menu>

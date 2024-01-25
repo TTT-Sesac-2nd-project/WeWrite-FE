@@ -43,6 +43,8 @@
     <string name="group_manage_toolbar">그룹 관리</string>
     <string name="group_member">그룹 멤버</string>
     <string name="group_member_count">4</string>
+    <string name="group_join">그룹 참가</string>
+    <string name="group_create">그룹 생성</string>
 
     <!-- GroupPageActivity -->
     <string name="group_page_invite">초대하기</string>
@@ -60,6 +62,12 @@
     <string name="dialog_edit">수정하기</string>
     <string name="dialog_delete">삭제하기</string>
     <string name="dialog_cancel">취소</string>
+
+    <!-- navigation -->
+    <string name="navi_home">홈</string>
+    <string name="navi_map">추억 지도</string>
+    <string name="navi_group">그룹</string>
+    <string name="navi_mypage">마이페이지</string>
 
 
 </resources>

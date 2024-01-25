@@ -1,5 +1,6 @@
 package com.wewrite.android.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.wewrite.android.R
@@ -8,6 +9,7 @@ import com.wewrite.android.ui.group.GroupFragment
 import com.wewrite.android.ui.home.HomeFragment
 import com.wewrite.android.ui.map.MapFragment
 import com.wewrite.android.ui.myPage.MyPageFragment
+import com.wewrite.android.ui.write.WriteActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,8 +17,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater) // 뷰 바인딩
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.fbWritePost.setOnClickListener { goToWrite(it) }
 
         setupBottomNavigation()
     }
@@ -40,5 +44,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun navigateTo(fragment: androidx.fragment.app.Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
+    }
+    fun goToWrite(view: android.view.View) {
+        val intent = Intent(this, WriteActivity::class.java)
+        startActivity(intent)
     }
 }
