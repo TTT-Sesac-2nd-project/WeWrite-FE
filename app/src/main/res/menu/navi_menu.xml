@@ -2,15 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/navi_home"
-        app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@drawable/navi_home"
-        android:title="@string/navi_home" />
+        android:title="@string/navi_home"
+        app:showAsAction="ifRoom"/>
 
     <item android:id="@+id/navi_map"
-        app:showAsAction="ifRoom"
+        android:enabled="true"
         android:icon="@drawable/navi_map"
-        android:title="@string/navi_map" />
+        android:title="@string/navi_map"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/blank"
@@ -19,13 +20,15 @@
         android:title="" />
 
     <item android:id="@+id/navi_group"
-        app:showAsAction="ifRoom"
-        android:checked="false"
+        android:enabled="true"
         android:icon="@drawable/navi_group"
-        android:title="@string/navi_group" />
+        android:title="@string/navi_group"
+        app:showAsAction="ifRoom"/>
 
     <item android:id="@+id/navi_mypage"
+        android:enabled="true"
         android:icon="@drawable/navi_mypage"
-        android:title="@string/navi_mypage" />
+        android:title="@string/navi_mypage"
+        app:showAsAction="ifRoom"/>
 
 </menu>

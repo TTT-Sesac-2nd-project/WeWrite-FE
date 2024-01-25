@@ -15,7 +15,7 @@ android {
         }
 
         applicationId "com.wewrite.android"
-        minSdk 34
+        minSdk 23
         targetSdk 34
         versionCode 1
         versionName "1.0"
