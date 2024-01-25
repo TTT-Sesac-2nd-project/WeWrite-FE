@@ -13,7 +13,7 @@ class BoardRepository(private val boardService: BoardService) {
         token: String,
         boardId: Long,
         boardDTO: UpdateBoardRequest
-    ): GetOneBoardResponse {
+    ): String {
         return boardService.updateBoard(token, boardId, boardDTO)
     }
 
