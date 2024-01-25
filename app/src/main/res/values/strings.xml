@@ -69,5 +69,21 @@
     <string name="navi_group">그룹</string>
     <string name="navi_mypage">마이페이지</string>
 
+    <!-- WriteActivity -->
+    <string name="write_toolbar">추억 기록하기</string>
+    <string name="write_photo_tv">사진</string>
+    <string name="write_title_tv">제목</string>
+    <string name="write_title_hint">추억의 이름을 정해주세요</string>
+    <string name="write_group_tv">그룹 선택</string>
+    <string name="write_group_hint">그룹을 선택해 주세요</string>
+    <string name="write_location_tv">장소</string>
+    <string name="write_location_hint">장소를 입력해주세요</string>
+    <string name="write_date_tv">날짜</string>
+    <string name="write_date_hint">날짜를 선택해주세요</string>
+    <string name="write_content_tv">내용</string>
+    <string name="write_content_hint">이 장소의 추억을 기록해보세요</string>
+    <string name="write_complete">기록 하기</string>
+
+
 
 </resources>
