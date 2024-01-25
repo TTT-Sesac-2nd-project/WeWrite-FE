@@ -9,6 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.wewrite.android.R
 import com.wewrite.android.api.data.com.wewrite.android.ui.detail.PostImageViewPagerAdapter
 import com.wewrite.android.databinding.ActivityDetailBinding
+import com.wewrite.android.ui.commons.CustomDialog
 
 class DetailActivity : AppCompatActivity() {
 
@@ -23,6 +24,7 @@ class DetailActivity : AppCompatActivity() {
         setPostImageList()
         setupViewPager()
         addIndicatorDots(postImageList.size)
+        setMoreButton()
     }
 
     private fun setPostImageList() {
@@ -70,6 +72,12 @@ class DetailActivity : AppCompatActivity() {
                     if (i == position) R.drawable.ind_detail_true else R.drawable.ind_detail_false
                 )
             )
+        }
+    }
+
+    private fun setMoreButton() {
+        binding.btnMore.setOnClickListener {
+            CustomDialog(this).show("삭제하기")
         }
     }
 }

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Gray9"
     tools:context=".ui.group.GroupCreateActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/toolbar"
@@ -62,6 +61,7 @@
             android:id="@+id/cv_group_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:backgroundTint="@color/Gray9"
             app:cardCornerRadius="999dp"
             >
             <ImageView
