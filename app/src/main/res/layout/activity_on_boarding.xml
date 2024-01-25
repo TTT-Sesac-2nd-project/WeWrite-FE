@@ -28,7 +28,7 @@
 
     </androidx.viewpager2.widget.ViewPager2>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next_button"
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -43,6 +43,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         >
 
-    </Button>
+    </androidx.appcompat.widget.AppCompatButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

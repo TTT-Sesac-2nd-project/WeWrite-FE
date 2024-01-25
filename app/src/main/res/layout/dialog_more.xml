@@ -7,9 +7,9 @@
     android:paddingHorizontal="16dp"
     android:paddingVertical="20dp"
     android:background="@drawable/bg_detail_vp"
-    android:backgroundTint="@color/Gray9"
+    android:backgroundTint="@color/white"
     >
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/dialog_text"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
@@ -24,8 +24,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-    </Button>
-    <Button
+    </androidx.appcompat.widget.AppCompatButton>
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/dialog_cancel"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
@@ -37,6 +37,6 @@
         app:layout_constraintTop_toBottomOf="@id/dialog_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-    </Button>
+    </androidx.appcompat.widget.AppCompatButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

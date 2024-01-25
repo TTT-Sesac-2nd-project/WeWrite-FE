@@ -2,12 +2,14 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.WeWrite" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowLightStatusBar">true</item>
-        <item name="colorPrimary">@color/white</item>
-        <item name="colorPrimaryDark">@color/white</item>
-        <item name="colorAccent">@color/white</item>
+        <item name="colorPrimary">@color/BluePurple</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/SkyBlue</item>
         <item name="android:textViewStyle">@style/CustomFontStyle</item>
         <item name="android:colorBackground">@color/white</item>
+        <item name="color">@color/black</item>
         <item name="android:statusBarColor">@color/Gray9</item>
+        <item name="materialCalendarHeaderToggleButton">@color/black</item>
     </style>
 
     <style name="Theme.WeWrite" parent="Base.Theme.WeWrite" />
