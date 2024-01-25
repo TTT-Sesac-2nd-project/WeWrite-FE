@@ -19,5 +19,4 @@ class OnBoardingFragment : Fragment() {
         return binding.root
     }
 
-
 }
