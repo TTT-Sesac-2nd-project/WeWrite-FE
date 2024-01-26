@@ -38,37 +38,7 @@ class GroupRepository(private val groupService: GroupService) {
     }
 
     companion object {
-        fun check(): GroupRepository {
-            val groupService = APIFactory.getInstance().create(GroupService::class.java)
-            return GroupRepository(groupService)
-        }
-
         fun create(): GroupRepository {
-            val groupService = APIFactory.getInstance().create(GroupService::class.java)
-            return GroupRepository(groupService)
-        }
-
-        fun getGroupPage(): GroupRepository {
-            val groupService = APIFactory.getInstance().create(GroupService::class.java)
-            return GroupRepository(groupService)
-        }
-
-        fun deleteGroup(): GroupRepository {
-            val groupService = APIFactory.getInstance().create(GroupService::class.java)
-            return GroupRepository(groupService)
-        }
-
-        fun updateGroup(): GroupRepository {
-            val groupService = APIFactory.getInstance().create(GroupService::class.java)
-            return GroupRepository(groupService)
-        }
-
-        fun joinGroup(): GroupRepository {
-            val groupService = APIFactory.getInstance().create(GroupService::class.java)
-            return GroupRepository(groupService)
-        }
-
-        fun leaveGroup(): GroupRepository {
             val groupService = APIFactory.getInstance().create(GroupService::class.java)
             return GroupRepository(groupService)
         }

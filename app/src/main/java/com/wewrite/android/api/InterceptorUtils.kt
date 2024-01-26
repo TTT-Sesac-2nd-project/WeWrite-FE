@@ -18,7 +18,6 @@ class JWTInterceptor: Interceptor {
         val request = chain.request().newBuilder()
             .header("token", "$accessToken")
             .build()
-        Log.e("Interceptor", "intercept: $accessToken")
 
         val response = chain.proceed(request)
 

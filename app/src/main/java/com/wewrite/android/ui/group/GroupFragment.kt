@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wewrite.android.R
 import com.wewrite.android.databinding.FragmentGroupBinding
-import com.wewrite.android.databinding.RvMyGroupBinding
-import com.wewrite.android.ui.home.GroupData
 
 class GroupFragment : Fragment() {
 
