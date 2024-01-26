@@ -60,7 +60,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun getGroupList() {
-        groupRepository = GroupRepository.create()
+        groupRepository = GroupRepository.check()
         lifecycleScope.launch {
             try {
                 val groupResponse = groupRepository.getGroupList()
