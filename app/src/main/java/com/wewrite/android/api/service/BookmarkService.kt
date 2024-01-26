@@ -5,8 +5,8 @@ import com.wewrite.android.api.model.BookmarkResponse
 import retrofit2.http.*
 interface BookmarkService {
     @GET("bookmark")
-    suspend fun getBookmark(): List<BookmarkResponse>
+    suspend fun getBookmark(): BookmarkResponse
 
     @PUT("bookmark/{boardId}")
-    suspend fun updateBookmark(@Path("boardId") boardId: Int): BaseResponse
+    suspend fun updateBookmark(@Path("boardId") boardId: Long): BaseResponse
 }
