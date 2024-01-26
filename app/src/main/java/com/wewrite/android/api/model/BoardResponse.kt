@@ -43,7 +43,7 @@ data class BoardItem(
     @SerializedName("boardTitle") val boardTitle: String,
     @SerializedName("boardViewCount") val boardViewCount: Long,
     @SerializedName("groupName") val groupName: String,
-    @SerializedName("isBookmarked") val isBookmarked: Int,
+    @SerializedName("isBookmarked") var isBookmarked: Int,
     @SerializedName("userImage") val userImage: String,
     @SerializedName("userName") val userName: String
 )

@@ -32,6 +32,7 @@ class HomeGroupAdapter(
     inner class ViewHolder(
         private val binding: RvHomeGroupBinding,
         private val listener: OnGroupClickListener
+
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: GroupResponse.GroupData) {
