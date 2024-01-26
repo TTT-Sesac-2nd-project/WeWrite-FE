@@ -1,17 +1,22 @@
 package com.wewrite.android.api.data.com.wewrite.android.ui.commons
 
-import BoardRepository
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.wewrite.android.R
 import com.wewrite.android.api.model.BoardItem
+import com.wewrite.android.api.repository.BookmarkRepository
 import com.wewrite.android.databinding.RvPostBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class PostAdapter(var PostList: List<BoardItem>): RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
-    private lateinit var boardRepository: BoardRepository
+    private lateinit var bookMarkRepository: BookmarkRepository
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = RvPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
@@ -33,19 +38,20 @@ class PostAdapter(var PostList: List<BoardItem>): RecyclerView.Adapter<PostAdapt
 
     inner class ViewHolder(private val binding: RvPostBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: BoardItem) {
+            setStarClick()
             binding.apply {
-                binding.postGroupName.text = item.groupName
-                binding.postTitle.text = item.boardTitle
-                binding.postReplyCount.text = "댓글 ${item.boardCommentCount.toString()} · "
-                binding.postViewCount.text = "조회수 ${item.boardViewCount.toString()}"
-                binding.postDate.text = item.boardCreatedDate
-                binding.postLocationText.text = item.boardLoc
-                binding.postUserName.text = item.userName
+                postGroupName.text = item.groupName
+                postTitle.text = item.boardTitle
+                postReplyCount.text = "댓글 ${item.boardCommentCount.toString()} · "
+                postViewCount.text = "조회수 ${item.boardViewCount.toString()}"
+                postDate.text = item.boardCreatedDate
+                postLocationText.text = item.boardLoc
+                postUserName.text = item.userName
 
                 if (item.isBookmarked == 1) {
-                    binding.postStar.setImageResource(R.drawable.vi_star_true)
+                    postStar.setImageResource(R.drawable.vi_star_true)
                 } else {
-                    binding.postStar.setImageResource(R.drawable.vi_star_false)
+                    postStar.setImageResource(R.drawable.vi_star_false)
                 }
 
                 Glide.with(root.context)
@@ -60,29 +66,32 @@ class PostAdapter(var PostList: List<BoardItem>): RecyclerView.Adapter<PostAdapt
                     .error(R.drawable.img_group_default) // 이미지 로딩 실패 시 보여질 이미지 (선택 사항)
                     .into(postImage)
             }
+        }
 
-//            fun setStarClick() {
-//                binding.postStar.setOnClickListener {
-//                    if (item.isBookmarked == 1) {
-//                        binding.postStar.setImageResource(R.drawable.vi_star_false)
-//                        item.isBookmarked = 0
-//                        boardRepository = BoardRepository.create()
-//                        try {
-//                            val boardResponse = boardRepository.getBoardList(groupId)
-//                            return boardResponse.data.boardList
-//                        } catch (e: Exception) {
-//                            Log.e("boardResponse", e.toString())
-//                        }
-//
-//                    } else {
-//                        binding.postStar.setImageResource(R.drawable.vi_star_true)
-//                        item.isBookmarked = 1
-//                    }
-//                }
-//            }
+        private fun setStarClick() {
+            binding.postStar.setOnClickListener {
+                bookMarkRepository = BookmarkRepository.create()
+                if (PostList[adapterPosition].isBookmarked == 1) {
+                    binding.postStar.setImageResource(R.drawable.vi_star_false)
+                    PostList[adapterPosition].isBookmarked = 0
+                } else {
+                    binding.postStar.setImageResource(R.drawable.vi_star_true)
+                    PostList[adapterPosition].isBookmarked = 1
+                }
+
+                try {
+                    // 코루틴 빌더를 사용하여 updateBookmark 함수를 호출
+                    GlobalScope.launch(Dispatchers.Main) {
+                        try {
+                            bookMarkRepository.updateBookmark(PostList[adapterPosition].boardId)
+                        } catch (e: Exception) {
+                            Log.e("boardResponse", e.toString())
+                        }
+                    }
+                } catch (e: Exception) {
+                    Log.e("CoroutineException", e.toString())
+                }
+            }
         }
     }
-
-
-
 }

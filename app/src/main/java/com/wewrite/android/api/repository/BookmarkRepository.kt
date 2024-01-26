@@ -6,21 +6,16 @@ import com.wewrite.android.api.model.BookmarkResponse
 import com.wewrite.android.api.service.BookmarkService
 
 class BookmarkRepository(private val bookmarkService: BookmarkService) {
-    suspend fun getBookmark(): List<BookmarkResponse> {
+    suspend fun getBookmark(): BookmarkResponse {
         return bookmarkService.getBookmark()
     }
 
-    suspend fun updateBookmark(boardId: Int): BaseResponse {
+    suspend fun updateBookmark(boardId: Long): BaseResponse {
         return bookmarkService.updateBookmark(boardId)
     }
 
     companion object {
-        fun getBookmark() : BookmarkRepository {
-            val bookmarkService = APIFactory.getInstance().create(BookmarkService::class.java)
-            return BookmarkRepository(bookmarkService)
-        }
-
-        fun updateBookmark() : BookmarkRepository {
+        fun create() : BookmarkRepository {
             val bookmarkService = APIFactory.getInstance().create(BookmarkService::class.java)
             return BookmarkRepository(bookmarkService)
         }
