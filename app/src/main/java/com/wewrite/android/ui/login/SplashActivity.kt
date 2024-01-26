@@ -5,7 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.wewrite.android.R
-import com.wewrite.android.api.data.com.wewrite.android.ui.login.LoginModel
+import com.wewrite.android.api.data.com.wewrite.android.ui.login.LoginController
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,12 +18,12 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun checkLogin() {
-            if (LoginModel(this).getToken() != "") {
-                LoginModel(this).goToMainActivity(this)
-                finish()
-            } else {
-                LoginModel(this).goToLoginActivity(this)
-                finish()
-            }
+        if (LoginController().getToken() != "") {
+            LoginController().goToMainActivity(this)
+            finish()
+        } else {
+            LoginController().goToLoginActivity(this)
+            finish()
+        }
     }
 }

@@ -1,18 +1,9 @@
 package com.wewrite.android.api.service
 
-import com.wewrite.android.api.data.GetOneBoardResponse
+import com.wewrite.android.api.model.GroupResponse
 import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Path
 
 interface GroupService {
-    @GET("board/{boardId}")
-    suspend fun getOneBoard(
-        @Header("token") token: String,
-        @Path("boardId") boardId: Long
-    ): GetOneBoardResponse
-
-
+    @GET("group")
+    suspend fun getGroupList(): GroupResponse
 }
-
-//@author: 김동욱

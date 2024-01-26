@@ -25,12 +25,11 @@ class MainActivity : AppCompatActivity() {
         setupBottomNavigation()
     }
 
-    private fun setupBottomNavigation() {
-        binding.bottomNavi.run {
-            setOnNavigationItemSelectedListener { navigateToFragment(it.itemId) }
-            selectedItemId = R.id.navi_home
-        }
+    private fun setupBottomNavigation() = binding.bottomNavi.apply {
+        setOnNavigationItemSelectedListener { navigateToFragment(it.itemId) }
+        selectedItemId = R.id.navi_home
     }
+
 
     private fun navigateToFragment(itemId: Int): Boolean {
         when (itemId) {

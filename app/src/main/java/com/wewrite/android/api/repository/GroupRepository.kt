@@ -1,19 +1,20 @@
+package com.wewrite.android.api.repository
+
+import android.util.Log
 import com.wewrite.android.api.APIFactory
-import com.wewrite.android.api.data.GetOneBoardResponse
-import com.wewrite.android.api.service.BoardService
+import com.wewrite.android.api.model.GroupResponse
+import com.wewrite.android.api.service.GroupService
 
-class GroupRepository(private val boardService: BoardService) {
+class GroupRepository(private val groupService: GroupService) {
 
-    suspend fun getOneGroupByGroupId(token: String, groupId: Long): GetOneBoardResponse {
-        return boardService.getOneBoard(token, groupId)
+    suspend fun getGroupList() : GroupResponse {
+        return groupService.getGroupList()
     }
 
     companion object {
-        fun create(): GroupRepository {
-            val groupService = APIFactory.getInstance().create(BoardService::class.java)
+        fun create() : GroupRepository {
+            val groupService = APIFactory.getInstance().create(GroupService::class.java)
             return GroupRepository(groupService)
         }
     }
 }
-
-//@Author: 김동욱

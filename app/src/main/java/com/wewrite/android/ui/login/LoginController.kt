@@ -4,11 +4,15 @@ import android.app.Activity
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
-import androidx.core.content.ContextCompat.startActivity
+import com.wewrite.android.GlobalApplication
 import com.wewrite.android.ui.MainActivity
 import com.wewrite.android.ui.login.LoginActivity
 
-class LoginModel(private val context: Context){
+class LoginController{
+
+    var context: Context = GlobalApplication.applicationContext()
+
+    private val pref = context.getSharedPreferences("pref", MODE_PRIVATE)
     fun saveToken(token: String) {
         val pref = context.getSharedPreferences("pref", MODE_PRIVATE)
         val editor = pref.edit()
@@ -17,7 +21,6 @@ class LoginModel(private val context: Context){
     }
 
     fun getToken(): String {
-        val pref = context.getSharedPreferences("pref", MODE_PRIVATE)
         return pref.getString("accessToken", "").toString()
     }
 
@@ -31,4 +34,5 @@ class LoginModel(private val context: Context){
         val intent = Intent(nowActivity, MainActivity::class.java)
         nowActivity.startActivity(intent)
     }
+
 }

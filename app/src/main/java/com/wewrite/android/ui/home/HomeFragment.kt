@@ -1,30 +1,36 @@
 package com.wewrite.android.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wewrite.android.R
 import com.wewrite.android.api.data.com.wewrite.android.ui.commons.PostAdapter
 import com.wewrite.android.api.data.com.wewrite.android.ui.commons.PostData
+import com.wewrite.android.api.repository.GroupRepository
 import com.wewrite.android.databinding.FragmentHomeBinding
 import com.wewrite.android.ui.commons.HomeGroupGridDecoration
 import com.wewrite.android.ui.commons.PostGridDecoration
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private val groupList: List<GroupData> = generateDummyGroupData()
     private val postList: List<PostData> = generateDummyPostData()
+    private lateinit var groupRepository: GroupRepository
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        getGroupList()
         setGroupList()
         setPostList()
 
@@ -51,6 +57,18 @@ class HomeFragment : Fragment() {
         recyclerViewList.adapter = groupAdapter
 
         recyclerViewList.addItemDecoration(HomeGroupGridDecoration(16))
+    }
+
+    private fun getGroupList() {
+        groupRepository = GroupRepository.create()
+        lifecycleScope.launch {
+            try {
+                val groupResponse = groupRepository.getGroupList()
+                Log.e("groupResponse", groupResponse.toString())
+            } catch (e: Exception) {
+                Log.e("groupResponse", e.toString())
+            }
+        }
     }
 
 
