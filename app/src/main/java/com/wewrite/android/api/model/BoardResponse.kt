@@ -1,8 +1,8 @@
 package com.wewrite.android.api.model
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
+import java.io.Serializable
 
 data class BoardResponse(
     val timeStamp: String,
@@ -31,7 +31,7 @@ data class BoardDetailData(
     @SerializedName("userImage") val userImage: String,
     @SerializedName("isWriter") val isWriter: Long,
     @SerializedName("boardImageList") val boardImageList: List<String>
-)
+) : Serializable
 
 @Parcelize
 data class BoardItem(

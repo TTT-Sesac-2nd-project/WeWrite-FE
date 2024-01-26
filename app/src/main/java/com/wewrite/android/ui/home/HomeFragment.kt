@@ -40,12 +40,28 @@ class HomeFragment : Fragment(), OnGroupClickListener {
 
                 setGroupList()
                 setPostList()
+                setRecyclerDecoration()
             } catch (e: Exception) {
                 Log.e("HomeFragment", e.toString())
             }
         }
 
         return binding.root
+    }
+
+    override fun onResume() {
+        lifecycleScope.launch {
+            try {
+                postList = getBoardList()
+                groupList = getGroupList()
+
+                setPostList()
+                setGroupList()
+            } catch (e: Exception) {
+                Log.e("HomeFragment", e.toString())
+            }
+        }
+        super.onResume()
     }
 
     private suspend fun getGroupList(): List<GroupResponse.GroupData> {
@@ -81,8 +97,11 @@ class HomeFragment : Fragment(), OnGroupClickListener {
 
         val postAdapter = PostAdapter(postList)
         recyclerViewList.adapter = postAdapter
+    }
 
-        recyclerViewList.addItemDecoration(PostGridDecoration(16))
+    private fun setRecyclerDecoration() {
+        binding.recyclerPost.addItemDecoration(PostGridDecoration(16))
+        binding.recyclerGroup.addItemDecoration(HomeGroupGridDecoration(16))
     }
 
     private fun setGroupList() {
@@ -93,8 +112,6 @@ class HomeFragment : Fragment(), OnGroupClickListener {
 
         val groupAdapter = HomeGroupAdapter(this, groupList)
         recyclerViewList.adapter = groupAdapter
-
-        recyclerViewList.addItemDecoration(HomeGroupGridDecoration(16))
     }
 
     private fun createDefaultGroupData(): GroupResponse.GroupData {

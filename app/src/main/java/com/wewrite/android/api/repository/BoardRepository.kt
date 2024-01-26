@@ -12,7 +12,7 @@ class BoardRepository(private val boardService: BoardService) {
         return boardService.getBoardList(groupId, "recent")
     }
 
-    suspend fun getOneBoardByBoardId(boardId: Long): GetOneBoardResponse {
+    suspend fun getOneBoard(boardId: Long): GetOneBoardResponse {
         return boardService.getOneBoard(boardId)
     }
 

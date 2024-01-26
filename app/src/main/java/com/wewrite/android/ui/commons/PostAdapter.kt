@@ -1,5 +1,7 @@
 package com.wewrite.android.api.data.com.wewrite.android.ui.commons
 
+import BoardRepository
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,6 +11,7 @@ import com.wewrite.android.R
 import com.wewrite.android.api.model.BoardItem
 import com.wewrite.android.api.repository.BookmarkRepository
 import com.wewrite.android.databinding.RvPostBinding
+import com.wewrite.android.ui.detail.DetailActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -16,6 +19,7 @@ import kotlinx.coroutines.launch
 class PostAdapter(var PostList: List<BoardItem>): RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
     private lateinit var bookMarkRepository: BookmarkRepository
+    private lateinit var boardRepository: BoardRepository
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = RvPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -39,6 +43,7 @@ class PostAdapter(var PostList: List<BoardItem>): RecyclerView.Adapter<PostAdapt
     inner class ViewHolder(private val binding: RvPostBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: BoardItem) {
             setStarClick()
+            showDetail()
             binding.apply {
                 postGroupName.text = item.groupName
                 postTitle.text = item.boardTitle
@@ -65,6 +70,31 @@ class PostAdapter(var PostList: List<BoardItem>): RecyclerView.Adapter<PostAdapt
                     .placeholder(R.drawable.img_group_default) // 이미지 로딩 중에 보여질 placeholder 이미지 (선택 사항)
                     .error(R.drawable.img_group_default) // 이미지 로딩 실패 시 보여질 이미지 (선택 사항)
                     .into(postImage)
+            }
+        }
+
+        private fun showDetail() {
+            binding.postImage.setOnClickListener {
+                boardRepository = BoardRepository.create()
+                try {
+                    // 코루틴 빌더를 사용하여 getOneBoard 함수를 호출
+                    GlobalScope.launch(Dispatchers.Main) {
+                        try {
+                            val boardResponse = boardRepository.getOneBoard(PostList[adapterPosition].boardId)
+                            Log.e("boardResponse", boardResponse.toString())
+                            val boardDetailData = boardResponse.data
+                            val intent = Intent(binding.root.context, DetailActivity::class.java)
+                            intent.putExtra("boardDetailData", boardDetailData)
+                            intent.putExtra("boardId", PostList[adapterPosition].boardId)
+                            intent.putExtra("isBookmarked", PostList[adapterPosition].isBookmarked)
+                            binding.root.context.startActivity(intent)
+                        } catch (e: Exception) {
+                            Log.e("boardResponse", e.toString())
+                        }
+                    }
+                } catch (e: Exception) {
+                    Log.e("CoroutineException", e.toString())
+                }
             }
         }
 

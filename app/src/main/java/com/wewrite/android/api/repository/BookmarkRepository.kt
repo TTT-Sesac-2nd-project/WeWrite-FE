@@ -1,5 +1,6 @@
 package com.wewrite.android.api.repository
 
+import android.util.Log
 import com.wewrite.android.api.APIFactory
 import com.wewrite.android.api.model.BaseResponse
 import com.wewrite.android.api.model.BookmarkResponse
