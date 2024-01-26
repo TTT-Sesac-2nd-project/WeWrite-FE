@@ -3,9 +3,10 @@ package com.wewrite.android.api.data.com.wewrite.android.ui.detail
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.wewrite.android.databinding.DetailImageSliderBinding
 
-class PostImageViewPagerAdapter (var postImageList: ArrayList<Int>) : RecyclerView.Adapter<PostImageViewPagerAdapter.ViewHolder>() {
+class PostImageViewPagerAdapter (var postImageList: ArrayList<String>) : RecyclerView.Adapter<PostImageViewPagerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = DetailImageSliderBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -22,9 +23,11 @@ class PostImageViewPagerAdapter (var postImageList: ArrayList<Int>) : RecyclerVi
     }
 
     inner class ViewHolder(private val binding: DetailImageSliderBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: Int) {
+        fun bind(item: String) {
             binding.apply {
-                binding.svDetail.setImageResource(item)
+                Glide.with(itemView.context)
+                    .load(item)
+                    .into(svDetail)
             }
         }
     }
