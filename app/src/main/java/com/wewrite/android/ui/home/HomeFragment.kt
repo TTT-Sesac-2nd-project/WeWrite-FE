@@ -19,7 +19,7 @@ import com.wewrite.android.ui.commons.HomeGroupGridDecoration
 import com.wewrite.android.ui.commons.PostGridDecoration
 import kotlinx.coroutines.launch
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), OnGroupClickListener {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var groupList: List<GroupResponse.GroupData>
@@ -35,11 +35,9 @@ class HomeFragment : Fragment() {
 
         lifecycleScope.launch {
             try {
-                // 비동기로 데이터 가져오기
                 groupList = getGroupList()
                 postList = getBoardList()
 
-                // UI 업데이트
                 setGroupList()
                 setPostList()
             } catch (e: Exception) {
@@ -54,17 +52,20 @@ class HomeFragment : Fragment() {
         groupRepository = GroupRepository.create()
         try {
             val groupResponse = groupRepository.getGroupList()
-            return groupResponse.data
+            val groupList = groupResponse.data.toMutableList()
+            groupList.add(0, createDefaultGroupData())
+
+            return groupList
         } catch (e: Exception) {
             Log.e("groupResponse", e.toString())
         }
         return emptyList()
     }
 
-    private suspend fun getBoardList(): List<BoardItem> {
+    private suspend fun getBoardList(groupId: Long = 0): List<BoardItem> {
         boardRepository = BoardRepository.create()
         try {
-            val boardResponse = boardRepository.getBoardList(groupId = 2)
+            val boardResponse = boardRepository.getBoardList(groupId)
             return boardResponse.data.boardList
         } catch (e: Exception) {
             Log.e("boardResponse", e.toString())
@@ -90,9 +91,37 @@ class HomeFragment : Fragment() {
         recyclerViewList.layoutManager = GridLayoutManager(requireContext(),
             1, GridLayoutManager.HORIZONTAL, false)
 
-        val groupAdapter = HomeGroupAdapter(groupList)
+        val groupAdapter = HomeGroupAdapter(this, groupList)
         recyclerViewList.adapter = groupAdapter
 
         recyclerViewList.addItemDecoration(HomeGroupGridDecoration(16))
+    }
+
+    private fun createDefaultGroupData(): GroupResponse.GroupData {
+        return GroupResponse.GroupData(
+            groupCode = "",
+            groupId = 0,
+            groupImageUrl = "", // 여기에 기본 이미지 URL을 넣어주세요
+            groupMemberCount = 0,
+            groupName = "전체"
+        )
+    }
+
+    override fun onGroupClick(groupId: Long) {
+        lifecycleScope.launch {
+            try {
+                postList = getBoardList(groupId)
+
+                // postAdapter에 새로운 데이터 설정 후 UI 갱신
+                binding.recyclerPost.adapter?.let { adapter ->
+                    if (adapter is PostAdapter) {
+                        adapter.setData(postList)
+                        adapter.notifyDataSetChanged()
+                    }
+                }
+            } catch (e: Exception) {
+                Log.e("HomeFragment", e.toString())
+            }
+        }
     }
 }

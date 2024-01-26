@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.wewrite.android.R
 import com.wewrite.android.api.data.com.wewrite.android.ui.commons.PostAdapter
 import com.wewrite.android.api.model.BoardItem
 import com.wewrite.android.databinding.FragmentMyPageBinding

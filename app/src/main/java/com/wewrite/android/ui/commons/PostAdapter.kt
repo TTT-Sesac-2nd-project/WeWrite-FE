@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.wewrite.android.R
 import com.wewrite.android.api.model.BoardItem
+import com.wewrite.android.api.model.GroupResponse
 import com.wewrite.android.databinding.RvPostBinding
 
 class PostAdapter(var PostList: List<BoardItem>): RecyclerView.Adapter<PostAdapter.ViewHolder>() {
@@ -21,6 +22,11 @@ class PostAdapter(var PostList: List<BoardItem>): RecyclerView.Adapter<PostAdapt
 
     override fun getItemCount(): Int {
         return PostList.size
+    }
+
+    fun setData(newData: List<BoardItem>) {
+        PostList = newData
+        notifyDataSetChanged()
     }
 
     inner class ViewHolder(private val binding: RvPostBinding): RecyclerView.ViewHolder(binding.root) {

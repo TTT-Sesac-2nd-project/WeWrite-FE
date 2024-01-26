@@ -13,9 +13,9 @@ data class GroupResponse (
     @Parcelize
     data class GroupData(
         @SerializedName("groupCode") val groupCode: String,
-        @SerializedName("groupId") val groupId: Int,
+        @SerializedName("groupId") val groupId: Long,
         @SerializedName("groupImageUrl") val groupImageUrl: String,
-        @SerializedName("groupMemberCount") val groupMemberCount: Int,
+        @SerializedName("groupMemberCount") val groupMemberCount: Long,
         @SerializedName("groupName") val groupName: String,
     )
 }
