@@ -24,6 +24,7 @@ class DetailActivity : AppCompatActivity() {
     private val token =
         "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhY2Nlc3MtdG9rZW4iLCJ0b2tlbiI6Ild6SHB2WS1oZzYtN1luTjlFbFBWeUw0YWM4V1ZTSlVOLTJVS1BYTHFBQUFCalRQaFpENFdwaEhKendYSnF3IiwidXNlcklkIjoiMzI5MDc4NzEwNyIsImlhdCI6MTcwNTk3MjQzNywiZXhwIjozNTA1OTcyNDM3fQ.xEwbOPdBMsS9BMVimsC9qgX9PTUjevyudE6g1YhaM6Q"
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
@@ -89,20 +90,20 @@ class DetailActivity : AppCompatActivity() {
     private fun setMoreButton() {
         binding.btnMore.setOnClickListener {
             CustomDialog(this).show("삭제하기")
+            deleteBoard()
         }
     }
 
 
     private fun getOneBoard() {
-        val groupService = APIFactory.getInstance().create(BoardService::class.java)
+        val boardService = APIFactory.getInstance().create(BoardService::class.java)
 
 //        val loginModel = LoginModel(this)
 //        val token = loginModel.getToken()
 
-
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val groupDTO = groupService.getOneBoard(token, 8L)
+                val groupDTO = boardService.getOneBoard(token, 8L)
                 Log.d("Get One Board", groupDTO.toString())
 
             } catch (e: Exception) {
@@ -110,4 +111,23 @@ class DetailActivity : AppCompatActivity() {
             }
         }
     }
+
+    // board 삭제
+    private fun deleteBoard() {
+        val boardService = APIFactory.getInstance().create(BoardService::class.java)
+        CoroutineScope(Dispatchers.IO).launch {
+            try{
+                // todo :  deleteBoard boardId 연결해야함
+
+                // boardService.deleteBoard(token, )
+            }
+            catch(e: Exception)
+            {
+
+            }
+        }
+
+    }
+
+
 }

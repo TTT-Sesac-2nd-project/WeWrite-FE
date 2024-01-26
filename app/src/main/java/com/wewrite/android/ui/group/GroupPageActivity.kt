@@ -16,8 +16,7 @@ class GroupPageActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGroupPageBinding
     private val postList: List<PostData> = HomeFragment.generateDummyPostData()
-    private val token =
-        "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhY2Nlc3MtdG9rZW4iLCJ0b2tlbiI6Ild6SHB2WS1oZzYtN1luTjlFbFBWeUw0YWM4V1ZTSlVOLTJVS1BYTHFBQUFCalRQaFpENFdwaEhKendYSnF3IiwidXNlcklkIjoiMzI5MDc4NzEwNyIsImlhdCI6MTcwNTk3MjQzNywiZXhwIjozNTA1OTcyNDM3fQ.xEwbOPdBMsS9BMVimsC9qgX9PTUjevyudE6g1YhaM6Q"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
