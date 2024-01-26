@@ -7,6 +7,7 @@ import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
 
@@ -15,21 +16,26 @@ interface BoardService {
     suspend fun getOneBoard(
         @Header("token") token: String,
         @Path("boardId") boardId: Long
-    ): GetOneBoardResponse
+    ): BaseResponse
 
     @PUT("board/{boardId}")
     suspend fun updateBoard(
         @Header("token") token: String,
         @Path("boardId") boardId: Long,
         @Body boardDTO: BoardRequest
-    ): String
+    ): BaseResponse
 
     @DELETE("board/{boardId}")
     suspend fun deleteBoard(
         @Header("token") token: String,
         @Path("boardId") boardId: Long
-    ): String
+    ): BaseResponse
 
+    @POST("board/")
+    suspend fun createBoard(
+        @Header("token") token: String
+
+    ) : BaseResponse
 
 
 

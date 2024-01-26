@@ -1,7 +1,6 @@
 import com.wewrite.android.api.APIFactory
-import com.wewrite.android.api.data.GetOneBoardResponse
-import com.wewrite.android.api.model.BoardRequest
 import com.wewrite.android.api.model.BaseResponse
+import com.wewrite.android.api.model.BoardRequest
 import com.wewrite.android.api.service.BoardService
 
 class BoardRepository(private val boardService: BoardService) {
@@ -13,7 +12,8 @@ class BoardRepository(private val boardService: BoardService) {
             return BoardRepository(groupService)
         }
     }
-    suspend fun getOneBoardByBoardId(token: String, boardId: Long): GetOneBoardResponse {
+
+    suspend fun getOneBoardByBoardId(token: String, boardId: Long): BaseResponse {
         return boardService.getOneBoard(token, boardId)
     }
 
@@ -21,17 +21,18 @@ class BoardRepository(private val boardService: BoardService) {
         token: String,
         boardId: Long,
         boardDTO: BoardRequest
-    ): String {
+    ): BaseResponse {
         return boardService.updateBoard(token, boardId, boardDTO)
     }
 
     suspend fun deleteBoard(
         token: String,
-        boardId : Long,
+        boardId: Long,
 
-    ) : String {
+        ): BaseResponse {
         return boardService.deleteBoard(token, boardId)
     }
+    
 
 }
 
