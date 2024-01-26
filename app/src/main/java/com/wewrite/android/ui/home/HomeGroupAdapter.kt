@@ -3,9 +3,12 @@ package com.wewrite.android.ui.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.wewrite.android.R
+import com.wewrite.android.api.model.GroupResponse
 import com.wewrite.android.databinding.RvHomeGroupBinding
 
-class HomeGroupAdapter(var groupList: List<GroupData>): RecyclerView.Adapter<HomeGroupAdapter.ViewHolder>() {
+class HomeGroupAdapter(var groupList: List<GroupResponse.GroupData>): RecyclerView.Adapter<HomeGroupAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = RvHomeGroupBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -22,10 +25,14 @@ class HomeGroupAdapter(var groupList: List<GroupData>): RecyclerView.Adapter<Hom
     }
 
     inner class ViewHolder(private val binding: RvHomeGroupBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: GroupData) {
+        fun bind(item: GroupResponse.GroupData) {
             binding.apply {
-                binding.groupText.text = item.groupTitle
-                binding.groupImage.setImageResource(item.groupImg)
+                binding.groupText.text = item.groupName
+                Glide.with(root.context)
+                    .load(item.groupImageUrl)
+                    .placeholder(R.drawable.img_group_default)
+                    .error(R.drawable.img_group_default)
+                    .into(groupImage)
             }
         }
     }

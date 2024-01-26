@@ -103,7 +103,7 @@ class DetailActivity : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val groupDTO = boardService.getOneBoard(token, 8L)
+                val groupDTO = boardService.getOneBoard(8L)
                 Log.d("Get One Board", groupDTO.toString())
 
             } catch (e: Exception) {
