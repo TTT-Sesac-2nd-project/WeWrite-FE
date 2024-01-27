@@ -9,11 +9,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wewrite.android.R
+import com.wewrite.android.api.repository.GroupRepository
 import com.wewrite.android.databinding.FragmentGroupBinding
 
 class GroupFragment : Fragment() {
 
     private lateinit var binding: FragmentGroupBinding
+    private lateinit var groupRepository: GroupRepository
     private val myGroupList: List<MyGroupData> = generateDummyMyGroupData()
 
     override fun onCreateView(
@@ -35,6 +37,13 @@ class GroupFragment : Fragment() {
         val myGroupAdapter = MyGroupAdapter(myGroupList)
         Log.e("GroupFragment", "myGroupAdapter: $myGroupAdapter")
         recyclerViewList.adapter = myGroupAdapter
+    }
+
+    suspend fun getGroupList() {
+        groupRepository = GroupRepository()
+        val groupList = groupRepository.getGroupList()
+        Log.e("GroupFragment", "groupList: $groupList")
+
     }
 
     private fun generateDummyMyGroupData(): List<MyGroupData> {

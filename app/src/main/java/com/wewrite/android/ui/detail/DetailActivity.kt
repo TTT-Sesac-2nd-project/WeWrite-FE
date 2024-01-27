@@ -31,7 +31,7 @@ class DetailActivity : AppCompatActivity() {
     private val bookmarkRepository = BookmarkRepository.create()
 
     private var boardId by Delegates.notNull<Long>()
-    private var isBookmarked: Boolean = false
+    private var isBookmarked: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class DetailActivity : AppCompatActivity() {
 
         boardDetailData = intent.getSerializableExtra("boardDetailData") as? BoardDetailData
         boardId = intent.getLongExtra("boardId", 0L)
-        isBookmarked = intent.getBooleanExtra("isBookmarked", false)
+        isBookmarked = intent.getIntExtra("isBookmarked", 0)
 
         postImageList = (boardDetailData?.boardImageList ?: arrayListOf()) as ArrayList<String>
         setBoardData()
@@ -62,8 +62,8 @@ class DetailActivity : AppCompatActivity() {
                 .into(ivWriter)
 
             btnMore.visibility = if (boardDetailData?.isWriter == 1L) ImageView.VISIBLE else ImageView.GONE
-
-            btnStar.setImageResource(if (isBookmarked) R.drawable.vi_star_true else R.drawable.vi_star_false)
+            Log.e("isWriter", isBookmarked.toString())
+            btnStar.setImageResource(if (isBookmarked == 1) R.drawable.vi_star_true else R.drawable.vi_star_false)
         }
     }
 
@@ -139,8 +139,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun setStarButton() {
         binding.btnStar.setOnClickListener {
-            isBookmarked = !isBookmarked
-            binding.btnStar.setImageResource(if (isBookmarked) R.drawable.vi_star_true else R.drawable.vi_star_false)
+            binding.btnStar.setImageResource(if (isBookmarked == 1) R.drawable.vi_star_true else R.drawable.vi_star_false)
             updateBookmark()
         }
     }

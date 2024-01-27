@@ -7,7 +7,7 @@ import com.wewrite.android.api.model.BookmarkResponse
 import com.wewrite.android.api.service.BookmarkService
 
 class BookmarkRepository(private val bookmarkService: BookmarkService) {
-    suspend fun getBookmark(): BookmarkResponse {
+    suspend fun getBookmarkList(): BookmarkResponse {
         return bookmarkService.getBookmark()
     }
 

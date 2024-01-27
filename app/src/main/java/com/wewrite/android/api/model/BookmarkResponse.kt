@@ -7,10 +7,10 @@ data class BookmarkResponse (
     val timeStamp: String,
     val code: Int,
     val status: String,
-    val data: BookmarkList
+    val data: List<BookmarkItem>
 ) {
-    @Parcelize
-    data class BookmarkList(
-        @SerializedName("boardList") val boardItem: BoardItem
-        )
+    data class BookmarkItem(
+        val bookmarkId: Int,
+        val boardList: BoardItem
+    )
 }
