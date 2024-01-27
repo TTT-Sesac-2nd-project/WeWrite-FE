@@ -14,6 +14,7 @@ import com.kakao.sdk.user.UserApiClient
 import com.wewrite.android.api.data.com.wewrite.android.ui.login.LoginController
 import com.wewrite.android.ui.MainActivity
 import com.wewrite.android.databinding.ActivityLoginBinding
+import com.wewrite.android.ui.onboarding.OnBoardingActivity
 import kotlinx.coroutines.runBlocking
 
 class LoginActivity : AppCompatActivity() {
@@ -76,12 +77,12 @@ class LoginActivity : AppCompatActivity() {
                                 Toast.makeText(this@LoginActivity, "로그인 에러, 다시 시도해주세요", Toast.LENGTH_SHORT).show()
                             }
                             Log.e(ContentValues.TAG, "엑세스 토큰: ${token.accessToken}")
-                            goToMainPage()
+                            goToOnBoardingPage()
                         }
                     } catch (e: Exception) {
                         Log.e(ContentValues.TAG, e.toString())
                     }
-                    goToMainPage()
+                    goToOnBoardingPage()
                 }
             }
         } else {
@@ -90,9 +91,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-    private fun goToMainPage() {
+    private fun goToOnBoardingPage() {
         // myPageActivity로 이동
-        val intent = Intent(this, MainActivity::class.java)
+        Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, OnBoardingActivity::class.java)
         startActivity(intent)
         finish()
     }

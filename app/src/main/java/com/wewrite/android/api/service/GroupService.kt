@@ -43,7 +43,7 @@ interface GroupService {
 
     @DELETE("group/leave/{groupId}")
     suspend fun leaveGroup(
-        @Path("groupId") groupId: Int
+        @Path("groupId") groupId: Long
     ): BaseResponse
 
 }

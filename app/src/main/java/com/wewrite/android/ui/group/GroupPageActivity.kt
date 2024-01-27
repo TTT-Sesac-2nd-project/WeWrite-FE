@@ -1,7 +1,10 @@
 package com.wewrite.android.ui.group
 
+import android.content.ClipboardManager
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -12,6 +15,7 @@ import com.wewrite.android.api.data.com.wewrite.android.ui.commons.PostAdapter
 import com.wewrite.android.api.model.BoardItem
 import com.wewrite.android.api.repository.GroupRepository
 import com.wewrite.android.databinding.ActivityGroupPageBinding
+import com.wewrite.android.ui.MainActivity
 import com.wewrite.android.ui.commons.CustomDialog
 import com.wewrite.android.ui.commons.PostGridDecoration
 import kotlinx.coroutines.launch
@@ -23,6 +27,7 @@ class GroupPageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGroupPageBinding
     private lateinit var postList: List<BoardItem>
     private lateinit var groupRepository: GroupRepository
+    private lateinit var groupCode: String
 
     private var groupId by Delegates.notNull<Long>()
 
@@ -43,6 +48,7 @@ class GroupPageActivity : AppCompatActivity() {
         }
 
         setMoreButton()
+        setInviteButton()
         setContentView(binding.root)
 
     }
@@ -58,40 +64,15 @@ class GroupPageActivity : AppCompatActivity() {
                 .placeholder(R.drawable.img_group_default)
                 .error(R.drawable.img_group_default)
                 .into(binding.ivGroupImage)
+            groupCode = response.groupCode
 
             response.boardData
         } catch (e: Exception) {
             Log.e("GroupPageActivity", e.toString())
-            generatePostDummy(10)
+            emptyList()
         }
 
     }
-
-    fun generatePostDummy(count: Int): List<BoardItem> {
-        val dummyList = mutableListOf<BoardItem>()
-
-        for (i in 1..count) {
-            val dummyItem = BoardItem(
-                boardCommentCount = i.toLong(),
-                boardCreatedDate = "2024-01-27",
-                boardId = i.toLong(),
-                boardImage = "dummy_image_url_$i",
-                boardLoc = "Dummy Location $i",
-                boardTitle = "Dummy Title $i",
-                boardViewCount = i.toLong(),
-                groupName = "Dummy Group $i",
-                isBookmarked = 0,
-                userImage = "dummy_user_image_url_$i",
-                userName = "Dummy User $i"
-            )
-
-            dummyList.add(dummyItem)
-        }
-
-        return dummyList
-    }
-
-
 
     private fun setGroupPostList() {
         val recyclerViewList: RecyclerView = binding.rvGroupPost
@@ -107,7 +88,43 @@ class GroupPageActivity : AppCompatActivity() {
 
     private fun setMoreButton() {
         binding.btnMore.setOnClickListener {
-            CustomDialog(this).show("그룹 나가기")
+            CustomDialog(this).show("그룹 나가기") { success ->
+                if (success) {
+                    Toast.makeText(this, "그룹을 나갔습니다.", Toast.LENGTH_SHORT).show()
+                    leaveGroup()
+                    navigateToMainActivity()
+                } else {
+                    Toast.makeText(this, "그룹 나가기를 실패했습니다.", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    private fun leaveGroup() {
+        groupRepository = GroupRepository.create()
+        lifecycleScope.launch {
+            try {
+                groupRepository.leaveGroup(groupId)
+                navigateToMainActivity()
+            } catch (e: Exception) {
+                Log.e("GroupPageActivity", e.toString())
+            }
+        }
+    }
+
+    private fun navigateToMainActivity() {
+        Intent(this, MainActivity::class.java).apply {
+            startActivity(this)
+        }
+        finish()
+    }
+
+    private fun setInviteButton() {
+        binding.btnInvite.setOnClickListener {
+            //클립보드에 그룹코드 복사
+            val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            clipboard.text = groupCode
+            Toast.makeText(this, "그룹코드가 복사되었습니다.", Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -35,7 +35,7 @@ class GroupRepository(private val groupService: GroupService) {
         return groupService.joinGroup(request)
     }
 
-    suspend fun leaveGroup(groupId: Int): BaseResponse {
+    suspend fun leaveGroup(groupId: Long): BaseResponse {
         return groupService.leaveGroup(groupId)
     }
 
