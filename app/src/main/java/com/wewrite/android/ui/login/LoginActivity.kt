@@ -12,7 +12,6 @@ import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
 import com.wewrite.android.api.data.com.wewrite.android.ui.login.LoginController
-import com.wewrite.android.ui.MainActivity
 import com.wewrite.android.databinding.ActivityLoginBinding
 import com.wewrite.android.ui.onboarding.OnBoardingActivity
 import kotlinx.coroutines.runBlocking
