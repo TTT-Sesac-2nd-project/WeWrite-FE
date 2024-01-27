@@ -81,7 +81,6 @@ class PostAdapter(var PostList: List<BoardItem>): RecyclerView.Adapter<PostAdapt
                     GlobalScope.launch(Dispatchers.Main) {
                         try {
                             val boardResponse = boardRepository.getOneBoard(PostList[adapterPosition].boardId)
-                            Log.e("boardResponse", boardResponse.toString())
                             val boardDetailData = boardResponse.data
                             val intent = Intent(binding.root.context, DetailActivity::class.java)
                             intent.putExtra("boardDetailData", boardDetailData)

@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    private fun navigateTo(fragment: androidx.fragment.app.Fragment) {
+    fun navigateTo(fragment: androidx.fragment.app.Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
     }
     fun goToWrite(view: android.view.View) {
