@@ -5,21 +5,28 @@ import com.wewrite.android.api.model.GroupCreateRequest
 import com.wewrite.android.api.model.GroupJoinRequest
 import com.wewrite.android.api.model.GroupPageResponse
 import com.wewrite.android.api.model.GroupResponse
+import okhttp3.MultipartBody
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
+import retrofit2.http.Multipart
 import retrofit2.http.PATCH
 import retrofit2.http.POST
+import retrofit2.http.Part
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface GroupService {
     @GET("group")
     suspend fun getGroupList(): GroupResponse
 
+    @Multipart
     @POST("group")
     suspend fun createGroup(
-        @Body groupData: GroupCreateRequest
+        @Part groupImage: MultipartBody.Part?,
+        @Query("groupName") groupName: String
     ): BaseResponse
+
 
     @GET("group/{groupId}")
     suspend fun getGroupPage(
