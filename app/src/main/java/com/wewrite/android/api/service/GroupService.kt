@@ -10,6 +10,7 @@ import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface GroupService {
     @GET("group")
@@ -21,13 +22,19 @@ interface GroupService {
     ): BaseResponse
 
     @GET("group/{groupId}")
-    suspend fun getGroupPage(groupId: Int): GroupPageResponse
+    suspend fun getGroupPage(
+        @Path("groupId") groupId: Long
+    ): GroupPageResponse
 
     @DELETE("group/{groupId}")
-    suspend fun deleteGroup(groupId: Int): BaseResponse
+    suspend fun deleteGroup(
+        @Path("groupId") groupId: Long
+    ): BaseResponse
 
     @PATCH("group/{groupId}")
-    suspend fun updateGroup(groupId: Int): BaseResponse
+    suspend fun updateGroup(
+        @Path("groupId") groupId: Long
+    ): BaseResponse
 
     @POST("group/join")
     suspend fun joinGroup(
@@ -35,6 +42,8 @@ interface GroupService {
     ): BaseResponse
 
     @DELETE("group/leave/{groupId}")
-    suspend fun leaveGroup(groupId: Int): BaseResponse
+    suspend fun leaveGroup(
+        @Path("groupId") groupId: Int
+    ): BaseResponse
 
 }
