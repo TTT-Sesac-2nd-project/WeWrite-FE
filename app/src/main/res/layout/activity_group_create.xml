@@ -68,7 +68,7 @@
                 android:id="@+id/iv_group_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/img_group_default"
+                android:src="@drawable/img_group_default"
                 android:scaleType="fitCenter">
             </ImageView>
         </androidx.cardview.widget.CardView>
@@ -114,6 +114,7 @@
     </EditText>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_complete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_common_button"

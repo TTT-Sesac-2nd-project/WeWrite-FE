@@ -7,6 +7,7 @@ import com.wewrite.android.api.model.GroupJoinRequest
 import com.wewrite.android.api.model.GroupPageResponse
 import com.wewrite.android.api.model.GroupResponse
 import com.wewrite.android.api.service.GroupService
+import okhttp3.MultipartBody
 
 class GroupRepository(private val groupService: GroupService) {
 
@@ -14,8 +15,8 @@ class GroupRepository(private val groupService: GroupService) {
         return groupService.getGroupList()
     }
 
-    suspend fun createGroup(groupCreateRequest: GroupCreateRequest): BaseResponse {
-        return groupService.createGroup(groupCreateRequest)
+    suspend fun createGroup(groupName: String, groupImage: MultipartBody.Part?): BaseResponse {
+        return groupService.createGroup(groupImage, groupName)
     }
 
     suspend fun getGroupPage(groupId: Long): GroupPageResponse {
