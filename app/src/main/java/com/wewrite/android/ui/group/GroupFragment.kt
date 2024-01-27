@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -90,12 +91,12 @@ class GroupFragment : Fragment() {
                 lifecycleScope.launch {
                     try {
                         communicateJoinGroup()
+                        refreshGroupList()
+                        dialog.dismiss()
                     } catch (e: Exception) {
                         Log.e("GroupFragment", e.toString())
                     }
                 }
-                refreshGroupList()
-                dialog.dismiss()
             }
 
             ad.setNegativeButton("취소") { dialog, _ ->
@@ -105,13 +106,18 @@ class GroupFragment : Fragment() {
             ad.show()
         }
     }
-
     private suspend fun communicateJoinGroup() {
-        val response = groupRepository.joinGroup(joinGroupCode)
-        if (response.code == 200) {
-            Log.e("GroupFragment", "그룹 가입 성공")
-        } else {
-            Log.e("GroupFragment", "존재하지 않는 그룹 코드입니다")
+
+        try {
+            val response = groupRepository.joinGroup(joinGroupCode)
+            when (response.code) {
+                200 -> Toast.makeText(requireContext(), "그룹에 가입되었습니다", Toast.LENGTH_SHORT).show()
+                409 -> Toast.makeText(requireContext(), "이미 가입한 그룹입니다", Toast.LENGTH_SHORT).show()
+                else -> Toast.makeText(requireContext(), "존재하지 않는 그룹코드 입니다.", Toast.LENGTH_SHORT).show()
+            };
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), "존재하지 않는 그룹코드 입니다.", Toast.LENGTH_SHORT).show()
         }
     }
+
 }
