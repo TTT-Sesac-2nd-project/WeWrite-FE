@@ -3,6 +3,7 @@ package com.wewrite.android.api.repository
 import com.wewrite.android.api.APIFactory
 import com.wewrite.android.api.model.BaseResponse
 import com.wewrite.android.api.model.GroupCreateRequest
+import com.wewrite.android.api.model.GroupJoinRequest
 import com.wewrite.android.api.model.GroupPageResponse
 import com.wewrite.android.api.model.GroupResponse
 import com.wewrite.android.api.service.GroupService
@@ -29,8 +30,9 @@ class GroupRepository(private val groupService: GroupService) {
         return groupService.updateGroup(groupId)
     }
 
-    suspend fun joinGroup(): BaseResponse {
-        return groupService.joinGroup()
+    suspend fun joinGroup(joinGroupCode: String): BaseResponse {
+        var request = GroupJoinRequest(joinGroupCode)
+        return groupService.joinGroup(request)
     }
 
     suspend fun leaveGroup(groupId: Int): BaseResponse {

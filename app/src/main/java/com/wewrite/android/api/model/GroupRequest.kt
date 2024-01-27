@@ -6,3 +6,7 @@ data class GroupCreateRequest (
     @SerializedName("groupImageUrl") val groupImageUrl: Int,
     @SerializedName("groupName") val groupName: String
 )
+
+data class GroupJoinRequest (
+    @SerializedName("groupCode") var groupCode: String
+)

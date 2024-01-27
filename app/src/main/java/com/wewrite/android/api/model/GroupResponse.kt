@@ -9,7 +9,6 @@ data class GroupResponse (
     val status: String,
     val data: List<GroupData>
 ) {
-
     @Parcelize
     data class GroupData(
         @SerializedName("groupCode") val groupCode: String,

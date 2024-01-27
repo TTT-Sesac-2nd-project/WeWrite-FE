@@ -73,7 +73,7 @@ class MyPageFragment : Fragment() {
         }
     }
 
-    suspend fun getLikePostList(): List<BoardItem> {
+    private suspend fun getLikePostList(): List<BoardItem> {
         bookmarkRepository = BookmarkRepository.create()
 
         return try {
@@ -87,7 +87,7 @@ class MyPageFragment : Fragment() {
         }
     }
 
-    suspend fun getUserData(): UserResponse.UserData {
+    private suspend fun getUserData(): UserResponse.UserData {
         userRepository = UserRepository.create()
         return try {
             val response = userRepository.getUserInfo()

@@ -2,6 +2,7 @@ package com.wewrite.android.api.service
 
 import com.wewrite.android.api.model.BaseResponse
 import com.wewrite.android.api.model.GroupCreateRequest
+import com.wewrite.android.api.model.GroupJoinRequest
 import com.wewrite.android.api.model.GroupPageResponse
 import com.wewrite.android.api.model.GroupResponse
 import retrofit2.http.Body
@@ -29,7 +30,9 @@ interface GroupService {
     suspend fun updateGroup(groupId: Int): BaseResponse
 
     @POST("group/join")
-    suspend fun joinGroup(): BaseResponse
+    suspend fun joinGroup(
+        @Body groupCodeData: GroupJoinRequest
+    ): BaseResponse
 
     @DELETE("group/leave/{groupId}")
     suspend fun leaveGroup(groupId: Int): BaseResponse
