@@ -18,15 +18,15 @@ class GroupRepository(private val groupService: GroupService) {
         return groupService.createGroup(groupCreateRequest)
     }
 
-    suspend fun getGroupPage(groupId: Int): GroupPageResponse {
+    suspend fun getGroupPage(groupId: Long): GroupPageResponse {
         return groupService.getGroupPage(groupId)
     }
 
-    suspend fun deleteGroup(groupId: Int): BaseResponse {
+    suspend fun deleteGroup(groupId: Long): BaseResponse {
         return groupService.deleteGroup(groupId)
     }
 
-    suspend fun updateGroup(groupId: Int): BaseResponse {
+    suspend fun updateGroup(groupId: Long): BaseResponse {
         return groupService.updateGroup(groupId)
     }
 
@@ -35,7 +35,7 @@ class GroupRepository(private val groupService: GroupService) {
         return groupService.joinGroup(request)
     }
 
-    suspend fun leaveGroup(groupId: Int): BaseResponse {
+    suspend fun leaveGroup(groupId: Long): BaseResponse {
         return groupService.leaveGroup(groupId)
     }
 

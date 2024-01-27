@@ -23,14 +23,14 @@ data class GroupPageResponse (
     val timeStamp: String,
     val code: Int,
     val status: String,
-    val data: List<GroupPageData>
+    val data: GroupPageData
 ) {
     @Parcelize
     data class GroupPageData(
-        @SerializedName("boardList") val boardData: BoardData,
+        @SerializedName("boardList") val boardData: List<BoardItem>,
         @SerializedName("groupCode") val groupCode: String,
         @SerializedName("groupImageUrl") val groupImageUrl: String,
-        @SerializedName("groupMemberCount") val groupMemberCount: Int,
+        @SerializedName("groupMemberCount") val groupMemberCount: Long,
         @SerializedName("groupName") val groupName: String,
     )
 }

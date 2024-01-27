@@ -12,7 +12,6 @@ import android.widget.EditText
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.wewrite.android.api.model.GroupJoinRequest
 import com.wewrite.android.api.model.GroupResponse
 import com.wewrite.android.api.repository.GroupRepository
 import com.wewrite.android.databinding.FragmentGroupBinding
@@ -33,6 +32,12 @@ class GroupFragment : Fragment() {
         goToGroupCreateActivity()
         joinGroup()
         groupRepository = GroupRepository.create()
+        refreshGroupList()
+
+        return binding.root
+    }
+
+    private fun refreshGroupList() {
         lifecycleScope.launch {
             try {
                 groupList = getGroupList()
@@ -42,8 +47,6 @@ class GroupFragment : Fragment() {
                 Log.e("GroupFragment", e.toString())
             }
         }
-
-        return binding.root
     }
 
 
@@ -59,7 +62,6 @@ class GroupFragment : Fragment() {
     private suspend fun getGroupList(): List<GroupResponse.GroupData> {
         return try {
             val response = groupRepository.getGroupList()
-            Log.e("GroupFragment", response.toString())
             response.data
         } catch (e: Exception) {
             Log.e("GroupFragment", e.toString())
@@ -88,12 +90,11 @@ class GroupFragment : Fragment() {
                 lifecycleScope.launch {
                     try {
                         communicateJoinGroup()
-                        getGroupList()
-                        setupMyGroupRecyclerView()
                     } catch (e: Exception) {
                         Log.e("GroupFragment", e.toString())
                     }
                 }
+                refreshGroupList()
                 dialog.dismiss()
             }
 

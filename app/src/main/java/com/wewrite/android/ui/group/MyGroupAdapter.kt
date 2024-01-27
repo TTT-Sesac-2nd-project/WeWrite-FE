@@ -1,5 +1,6 @@
 package com.wewrite.android.ui.group
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -34,6 +35,16 @@ class MyGroupAdapter (private var myGroupList: List<GroupResponse.GroupData>) : 
                     .placeholder(R.drawable.img_group_default)
                     .error(R.drawable.img_group_default)
                     .into(binding.groupImage)
+
+                goToGroupPage(item)
+            }
+        }
+
+        private fun goToGroupPage(item: GroupResponse.GroupData) {
+            binding.root.setOnClickListener {
+                val intent = Intent(binding.root.context, GroupPageActivity::class.java)
+                intent.putExtra("groupId", item.groupId)
+                binding.root.context.startActivity(intent)
             }
         }
     }

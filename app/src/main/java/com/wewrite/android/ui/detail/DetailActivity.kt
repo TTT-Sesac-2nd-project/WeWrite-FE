@@ -113,21 +113,17 @@ class DetailActivity : AppCompatActivity() {
 
     private fun setMoreButton() {
         binding.btnMore.setOnClickListener {
-            CustomDialog(this).show("삭제하기")
-            deleteBoard()
-        }
-    }
-
-    private fun deleteBoard() {
-        lifecycleScope.launch(Dispatchers.Main) {
-            try {
-                boardRepository.deleteBoard(boardId)
-                Toast.makeText(this@DetailActivity, "삭제되었습니다.", Toast.LENGTH_SHORT).show()
-                navigateToMainActivity()
-            } catch (e: Exception) {
-                Log.e("boardResponse", e.toString())
+            CustomDialog(this).show("삭제하기") { success ->
+                if (success) {
+                    Toast.makeText(this, "글이 삭제되었습니다.", Toast.LENGTH_SHORT).show()
+                    deleteBoard()
+                    navigateToMainActivity()
+                } else {
+                    Toast.makeText(this, "삭제를 실패했습니다.", Toast.LENGTH_SHORT).show()
+                }
             }
         }
+
     }
 
     private fun navigateToMainActivity() {
@@ -149,6 +145,16 @@ class DetailActivity : AppCompatActivity() {
             try {
                 bookmarkRepository.updateBookmark(boardId)
                 Log.e("bookmarkResponse", "Bookmark updated successfully.")
+            } catch (e: Exception) {
+                Log.e("boardResponse", e.toString())
+            }
+        }
+    }
+
+    private fun deleteBoard() {
+        lifecycleScope.launch(Dispatchers.Main) {
+            try {
+                boardRepository.deleteBoard(boardId)
             } catch (e: Exception) {
                 Log.e("boardResponse", e.toString())
             }
