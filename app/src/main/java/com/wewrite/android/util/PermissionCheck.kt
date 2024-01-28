@@ -1,6 +1,7 @@
 package com.wewrite.android.util
 
 import android.Manifest
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -10,6 +11,8 @@ import android.provider.MediaStore
 import android.util.Log
 import androidx.activity.result.ActivityResultLauncher
 import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.Fragment
@@ -64,6 +67,22 @@ class PermissionCheck {
             Log.d("Gallery", "Opening gallery...")
             val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             setImageResult.launch(galleryIntent)
+        }
+
+        fun checkLocationPermission(context: Context): Boolean {
+            return ContextCompat.checkSelfPermission(
+                context,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        }
+
+        //activity에서 위치 권한 요청
+        fun requestLocationPermission(activity: Activity, requestCode: Int) {
+            requestPermissions(
+                activity,
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                requestCode
+            )
         }
     }
 }

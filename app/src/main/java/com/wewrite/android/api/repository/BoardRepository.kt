@@ -4,6 +4,8 @@ import com.wewrite.android.api.model.BoardRequest
 import com.wewrite.android.api.model.BoardResponse
 import com.wewrite.android.api.model.GetOneBoardResponse
 import com.wewrite.android.api.service.BoardService
+import okhttp3.MultipartBody
+import retrofit2.http.Multipart
 
 class BoardRepository(private val boardService: BoardService) {
 
@@ -16,8 +18,8 @@ class BoardRepository(private val boardService: BoardService) {
         return boardService.getOneBoard(boardId)
     }
 
-    suspend fun createBoard(): BaseResponse {
-        return boardService.createBoard()
+    suspend fun createBoard(boardData: BoardRequest.BoardData, boardImage: MultipartBody.Part?): BaseResponse {
+        return boardService.createBoard(boardImage, boardData)
     }
 
 

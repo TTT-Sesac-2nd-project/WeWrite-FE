@@ -62,7 +62,6 @@ class DetailActivity : AppCompatActivity() {
                 .into(ivWriter)
 
             btnMore.visibility = if (boardDetailData?.isWriter == 1L) ImageView.VISIBLE else ImageView.GONE
-            Log.e("isWriter", isBookmarked.toString())
             btnStar.setImageResource(if (isBookmarked == 1) R.drawable.vi_star_true else R.drawable.vi_star_false)
         }
     }

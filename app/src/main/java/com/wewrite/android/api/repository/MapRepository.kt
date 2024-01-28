@@ -10,7 +10,7 @@ class MapRepository(private val mapService: MapService) {
     }
 
     companion object {
-        fun check() : MapRepository {
+        fun create() : MapRepository {
             val mapService = APIFactory.getInstance().create(MapService::class.java)
             return MapRepository(mapService)
         }

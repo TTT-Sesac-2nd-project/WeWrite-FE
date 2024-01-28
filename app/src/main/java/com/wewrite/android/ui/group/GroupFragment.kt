@@ -50,7 +50,6 @@ class GroupFragment : Fragment() {
         }
     }
 
-
     private fun setupMyGroupRecyclerView() {
         val recyclerViewList: RecyclerView = binding.rvMyGroup
         recyclerViewList.layoutManager = GridLayoutManager(requireContext(),
