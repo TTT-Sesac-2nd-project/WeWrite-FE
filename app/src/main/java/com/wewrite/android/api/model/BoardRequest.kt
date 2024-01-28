@@ -10,7 +10,6 @@ data class BoardEditRequest(
 )
 
 data class BoardRequest(
-    val title: String,
     val boardDTO: BoardData
 ) {
     @Parcelize

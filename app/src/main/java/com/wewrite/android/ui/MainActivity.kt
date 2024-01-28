@@ -26,7 +26,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNavigation() = binding.bottomNavi.apply {
-        setOnNavigationItemSelectedListener { navigateToFragment(it.itemId) }
+        setOnNavigationItemSelectedListener { item ->
+            val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
+
+            if (currentFragment != null && item.itemId == currentFragment.tag?.toInt()) {
+                return@setOnNavigationItemSelectedListener false
+            }
+            navigateToFragment(item.itemId)
+            true
+        }
         selectedItemId = R.id.navi_home
     }
 

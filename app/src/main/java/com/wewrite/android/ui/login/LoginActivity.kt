@@ -59,6 +59,7 @@ class LoginActivity : AppCompatActivity() {
                     }
 
                     // 카카오톡에 연결된 카카오계정이 없는 경우, 카카오계정으로 로그인 시도
+                    // 이 부분을 추가
                     UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
                     Log.e(ContentValues.TAG, "카카오 로그인 시도")
                 } else if (token != null) {
