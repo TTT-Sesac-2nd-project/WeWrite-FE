@@ -53,6 +53,10 @@ class GroupCreateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGroupCreateBinding.inflate(layoutInflater)
+
+        binding.ivToolbarBack.setOnClickListener {
+            finish()
+        }
         setImagePlusButton()
         setCompleteButton()
         setContentView(binding.root)
