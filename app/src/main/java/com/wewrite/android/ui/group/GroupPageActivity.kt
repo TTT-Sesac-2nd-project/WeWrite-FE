@@ -47,6 +47,10 @@ class GroupPageActivity : AppCompatActivity() {
 
         }
 
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
         setMoreButton()
         setInviteButton()
         setContentView(binding.root)

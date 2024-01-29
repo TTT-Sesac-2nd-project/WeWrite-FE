@@ -54,6 +54,9 @@ class WriteActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, S
         setLocationButton()
         setupDate()
         setImagePlusButton()
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
         lifecycleScope.launch {
             getGroupList()
             setGroupSpinner()

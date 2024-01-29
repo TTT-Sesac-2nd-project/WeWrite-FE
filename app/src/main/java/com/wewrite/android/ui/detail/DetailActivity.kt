@@ -18,6 +18,7 @@ import com.wewrite.android.api.repository.BookmarkRepository
 import com.wewrite.android.databinding.ActivityDetailBinding
 import com.wewrite.android.ui.MainActivity
 import com.wewrite.android.ui.commons.CustomDialog
+import com.wewrite.android.util.BackPress.Companion.setupBackButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.properties.Delegates
@@ -41,6 +42,10 @@ class DetailActivity : AppCompatActivity() {
         boardDetailData = intent.getSerializableExtra("boardDetailData") as? BoardDetailData
         boardId = intent.getLongExtra("boardId", 0L)
         isBookmarked = intent.getIntExtra("isBookmarked", 0)
+
+        binding.backButton.setOnClickListener {
+            finish()
+        }
 
         postImageList = (boardDetailData?.boardImageList ?: arrayListOf()) as ArrayList<String>
         setBoardData()
