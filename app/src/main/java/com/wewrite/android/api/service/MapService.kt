@@ -10,3 +10,4 @@ interface MapService {
         @Path("groupId") groupId: Int
     ): MapResponse
 }
+//@author: 이승민

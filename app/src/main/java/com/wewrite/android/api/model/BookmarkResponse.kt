@@ -14,3 +14,4 @@ data class BookmarkResponse (
         val boardList: BoardItem
     )
 }
+//@author: 이승민

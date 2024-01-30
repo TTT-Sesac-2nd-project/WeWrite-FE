@@ -20,3 +20,5 @@ class OnBoardingFragment : Fragment() {
     }
 
 }
+
+//@author: 이승민

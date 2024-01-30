@@ -25,3 +25,4 @@ val onBoardingList = listOf(
         content = "특별했던 나, 우리의 기록을 스크랩하고\n간편하게 관리해 보세요"
     )
 )
+//@author: 이승민

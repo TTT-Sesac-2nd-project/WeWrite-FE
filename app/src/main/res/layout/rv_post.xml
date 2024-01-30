@@ -19,8 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        >
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
             android:id="@+id/post_image"
@@ -53,7 +52,8 @@
                 android:background="@android:color/transparent"
                 android:src="@drawable/vi_star_false"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></ImageButton>
+                app:layout_constraintTop_toTopOf="parent">
+            </ImageButton>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/post_content"
@@ -77,7 +77,8 @@
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
+                        app:layout_constraintTop_toTopOf="parent">
+                    </TextView>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/post_location_layout"
@@ -94,7 +95,8 @@
                             android:src="@drawable/vi_location"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@id/post_location_text"
-                            app:layout_constraintTop_toTopOf="parent"></ImageView>
+                            app:layout_constraintTop_toTopOf="parent">
+                        </ImageView>
 
                         <TextView
                             android:id="@+id/post_location_text"
@@ -106,7 +108,8 @@
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"></TextView>
+                            app:layout_constraintTop_toTopOf="parent">
+                        </TextView>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -135,7 +138,8 @@
                             android:id="@+id/post_user_image"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/img_user_default"></ImageView>
+                            android:src="@drawable/img_user_default">
+                        </ImageView>
                     </androidx.cardview.widget.CardView>
 
                     <TextView
@@ -148,7 +152,8 @@
                         android:textSize="13sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/post_user_card"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
+                        app:layout_constraintTop_toTopOf="parent">
+                    </TextView>
 
                     <TextView
                         android:id="@+id/seprate_dot1"
@@ -159,7 +164,8 @@
                         android:textSize="13sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/post_user_name"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
+                        app:layout_constraintTop_toTopOf="parent">
+                    </TextView>
 
                     <TextView
                         android:id="@+id/post_group_name"
@@ -170,7 +176,8 @@
                         android:textSize="13sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/seprate_dot1"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
+                        app:layout_constraintTop_toTopOf="parent">
+                    </TextView>
 
                     <TextView
                         android:id="@+id/post_date"
@@ -182,7 +189,8 @@
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/post_reply_count"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
+                        app:layout_constraintTop_toTopOf="parent">
+                    </TextView>
 
                     <TextView
                         android:id="@+id/post_reply_count"
@@ -204,7 +212,8 @@
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
+                        app:layout_constraintTop_toTopOf="parent">
+                    </TextView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -213,3 +222,5 @@
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--//@author: 이승민 -->

@@ -24,4 +24,4 @@ data class BoardRequest(
     )
 
 }
-
+//@author: 김동욱

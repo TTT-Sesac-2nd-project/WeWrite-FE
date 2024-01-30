@@ -36,3 +36,5 @@ class OnBoardingAdapter(private val onBoardingList: List<OnBoardingData>) :
         return onBoardingList.size
     }
 }
+
+//@author: 이승민

@@ -57,3 +57,5 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 }
+
+//@author: 이승민

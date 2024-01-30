@@ -22,3 +22,4 @@ class BookmarkRepository(private val bookmarkService: BookmarkService) {
         }
     }
 }
+//@author: 이승민

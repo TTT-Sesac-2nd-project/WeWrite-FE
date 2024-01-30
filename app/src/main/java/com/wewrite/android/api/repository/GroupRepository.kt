@@ -47,3 +47,4 @@ class GroupRepository(private val groupService: GroupService) {
         }
     }
 }
+//@author: 이소민

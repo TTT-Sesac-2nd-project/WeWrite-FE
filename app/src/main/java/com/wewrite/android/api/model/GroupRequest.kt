@@ -11,3 +11,5 @@ data class GroupCreateRequest (
 data class GroupJoinRequest (
     @SerializedName("groupCode") var groupCode: String
 )
+
+//@author: 이소민

@@ -86,3 +86,5 @@ class OnBoardingActivity : AppCompatActivity() {
     }
 
 }
+
+//@author: 이승민

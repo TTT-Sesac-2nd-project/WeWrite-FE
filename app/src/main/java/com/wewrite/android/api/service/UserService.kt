@@ -8,3 +8,5 @@ interface UserService {
     @GET("user")
     suspend fun getUserData(): UserResponse
 }
+
+//@author: 이승민

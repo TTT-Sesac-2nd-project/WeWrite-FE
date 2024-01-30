@@ -16,3 +16,4 @@ class MapRepository(private val mapService: MapService) {
         }
     }
 }
+//@author: 이승민

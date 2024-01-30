@@ -47,3 +47,4 @@ data class BoardItem(
     @SerializedName("userImage") val userImage: String,
     @SerializedName("userName") val userName: String
 )
+//@author: 김동욱

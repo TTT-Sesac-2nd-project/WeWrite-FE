@@ -18,3 +18,5 @@ data class UserResponse (
             @SerializedName("userName") val userName: String,
         )
     }
+
+//@author: 이승민

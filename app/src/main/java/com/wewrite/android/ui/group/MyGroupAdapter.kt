@@ -49,3 +49,5 @@ class MyGroupAdapter (private var myGroupList: List<GroupResponse.GroupData>) : 
         }
     }
 }
+
+//@author: 이승민

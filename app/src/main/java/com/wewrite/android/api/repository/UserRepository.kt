@@ -17,3 +17,4 @@ class UserRepository(private val userService: UserService) {
         }
     }
 }
+//@author: 이승민

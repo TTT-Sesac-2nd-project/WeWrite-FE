@@ -10,3 +10,4 @@ interface BookmarkService {
     @PUT("bookmark/{boardId}")
     suspend fun updateBookmark(@Path("boardId") boardId: Long): BaseResponse
 }
+//@author: 이승민

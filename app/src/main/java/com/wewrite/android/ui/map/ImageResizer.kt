@@ -47,3 +47,5 @@ object ImageResizer {
         return inSampleSize
     }
 }
+
+//@author: 이승민

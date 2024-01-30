@@ -6,3 +6,4 @@ data class BaseResponse(
     val status: String,
     val timeStamp: String
 )
+//@author: 이승민

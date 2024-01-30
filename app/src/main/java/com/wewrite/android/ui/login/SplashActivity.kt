@@ -28,3 +28,5 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 }
+
+//@author: 이승민

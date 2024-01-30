@@ -168,3 +168,5 @@ class MapFragment : Fragment(), CalloutBalloonAdapter {
         }
     }
 }
+
+//@author: 이승민

@@ -32,3 +32,4 @@ class PostImageViewPagerAdapter (var postImageList: ArrayList<String>) : Recycle
         }
     }
 }
+//@author: 이승민

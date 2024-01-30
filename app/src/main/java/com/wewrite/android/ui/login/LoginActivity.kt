@@ -49,13 +49,13 @@ class LoginActivity : AppCompatActivity() {
         if (UserApiClient.instance.isKakaoTalkLoginAvailable(this)) {
             UserApiClient.instance.loginWithKakaoTalk(this) { token, error ->
                 if (error != null) {
-                    Toast.makeText(this, "카카오톡으로 로그인 실패", Toast.LENGTH_SHORT).show()
                     Log.e(ContentValues.TAG, error.toString())
 
                     if (error is ClientError && error.reason == ClientErrorCause.Cancelled) {
                         return@loginWithKakaoTalk
                     } else {
-                        Toast.makeText(this, "카카오 로그인 시도 실패", Toast.LENGTH_SHORT).show()
+                        Log.e(ContentValues.TAG, callback.toString())
+                        goToOnBoardingPage()
                     }
 
                     // 카카오톡에 연결된 카카오계정이 없는 경우, 카카오계정으로 로그인 시도

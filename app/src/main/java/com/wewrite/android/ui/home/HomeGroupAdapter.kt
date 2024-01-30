@@ -72,3 +72,5 @@ class HomeGroupAdapter(
 interface OnGroupClickListener {
     fun onGroupClick(groupId: Long)
 }
+
+//@author: 이승민

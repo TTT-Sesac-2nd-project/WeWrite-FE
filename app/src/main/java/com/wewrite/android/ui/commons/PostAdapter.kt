@@ -124,3 +124,5 @@ class PostAdapter(var PostList: List<BoardItem>): RecyclerView.Adapter<PostAdapt
         }
     }
 }
+
+//@author: 이승민

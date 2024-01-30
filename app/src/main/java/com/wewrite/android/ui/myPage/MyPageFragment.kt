@@ -106,3 +106,5 @@ class MyPageFragment : Fragment() {
         }
     }
 }
+
+//@author: 이승민

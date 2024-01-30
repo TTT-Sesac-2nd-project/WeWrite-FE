@@ -166,3 +166,4 @@ class DetailActivity : AppCompatActivity() {
     }
 }
 
+//@author: 이승민

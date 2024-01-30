@@ -242,3 +242,5 @@ class WriteActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, S
     }
 
 }
+
+//@author: 이승민

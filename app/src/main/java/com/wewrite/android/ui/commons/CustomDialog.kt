@@ -42,19 +42,6 @@ class CustomDialog(private val context: AppCompatActivity) {
 
         dialog.show()
     }
-
-//    private fun leaveGroup(groupId: Long) {
-//        groupRepository = GroupRepository.create()
-//        // Assuming `leaveGroup` is a suspend function (using coroutines)
-//        context.lifecycleScope.launch {
-//            try {
-//                val response = groupRepository.leaveGroup(groupId)
-//                leaveGroupCallback?.invoke(true)
-//                Toast.makeText(context, "그룹에서 탈퇴되었습니다.", Toast.LENGTH_SHORT).show()
-//            } catch (e: Exception) {
-//                // Handle the exception
-//                leaveGroupCallback?.invoke(false)
-//            }
-//        }
-//    }
 }
+
+//@author: 이승민

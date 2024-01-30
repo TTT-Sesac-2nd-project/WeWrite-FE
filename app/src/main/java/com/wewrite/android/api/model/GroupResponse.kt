@@ -34,3 +34,5 @@ data class GroupPageResponse (
         @SerializedName("groupName") val groupName: String,
     )
 }
+
+//@author: 이소민

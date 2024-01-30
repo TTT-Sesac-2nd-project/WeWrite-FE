@@ -93,3 +93,5 @@ class GroupCreateActivity : AppCompatActivity() {
     }
 
 }
+
+//@author: 이승민

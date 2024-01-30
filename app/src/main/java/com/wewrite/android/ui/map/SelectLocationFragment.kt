@@ -129,3 +129,5 @@ class SelectLocationFragment : DialogFragment() {
         }
     }
 }
+
+//@author: 이승민

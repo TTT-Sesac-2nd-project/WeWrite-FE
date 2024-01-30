@@ -21,3 +21,5 @@ data class MapResponse (
         @SerializedName("groupName") val groupName: String
     )
 }
+
+//@author: 이승민
