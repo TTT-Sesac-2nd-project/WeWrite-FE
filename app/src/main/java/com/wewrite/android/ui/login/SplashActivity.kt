@@ -13,7 +13,6 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         Handler(Looper.getMainLooper()).postDelayed({
             finish()
-            forceLogin()
             checkLogin()
 
         }, 1500)
@@ -27,10 +26,5 @@ class SplashActivity : AppCompatActivity() {
             LoginController().goToLoginActivity(this)
             finish()
         }
-    }
-
-    private fun forceLogin() {
-        LoginController().saveToken("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhY2Nlc3MtdG9rZW4iLCJ0b2tlbiI6Ikhyc1I2ZmVBZXBHMjczdTMtbVg1OC1LcTBzbE54bmdSVFZNS0t3MGZBQUFCalVfSmg4QVdwaEhKendYSnF3IiwidXNlcklkIjoiMzI5MDc4NzEwNyIsImlhdCI6MTcwNjQ0MDY1MSwiZXhwIjozNTA2NDQwNjUxfQ.alRgITQ4HXdMc6iAkk1z-WoELCfljj2mi3LYj7d10lU")
-        finish()
     }
 }

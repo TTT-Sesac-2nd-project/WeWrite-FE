@@ -73,7 +73,7 @@ class PostAdapter(var PostList: List<BoardItem>): RecyclerView.Adapter<PostAdapt
             }
         }
 
-        private fun showDetail() {
+        fun showDetail() {
             binding.postImage.setOnClickListener {
                 boardRepository = BoardRepository.create()
                 try {

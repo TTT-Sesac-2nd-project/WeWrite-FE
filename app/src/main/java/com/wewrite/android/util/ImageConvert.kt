@@ -51,7 +51,7 @@ class ImageConvert {
 
         // 임시 이미지 파일을 생성하는 함수
         private fun createTempImageFile(context: Context): File {
-            return File.createTempFile("temp_image", ".jpg", context.cacheDir)
+            return File.createTempFile("temp_image", ".jpeg", context.cacheDir)
         }
     }
 }

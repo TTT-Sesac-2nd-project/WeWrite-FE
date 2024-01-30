@@ -73,7 +73,7 @@ class SelectLocationFragment : DialogFragment() {
         super.onResume()
     }
 
-    private fun getCurrentLocation() {
+    fun getCurrentLocation() {
         MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading  //이 부분
 
         val lm: LocationManager = getSystemService(requireContext(), LocationManager::class.java)!!

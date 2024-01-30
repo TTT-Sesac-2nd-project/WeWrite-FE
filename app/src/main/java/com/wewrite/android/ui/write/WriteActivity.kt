@@ -55,6 +55,7 @@ class WriteActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, S
         setupDate()
         setImagePlusButton()
         binding.btnBack.setOnClickListener {
+            Toast.makeText(this@WriteActivity, "글 작성이", Toast.LENGTH_SHORT).show()
             finish()
         }
         lifecycleScope.launch {
@@ -180,7 +181,7 @@ class WriteActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, S
                     val title = binding.editTitle.text.toString()
                     val content = binding.editContent.text.toString()
                     val date = binding.editDateText.text.toString()
-                    val locName = "서울시"
+                    val locName = binding.editLocName.text.toString()
                     val boardDTO =
                             BoardRequest.BoardData(
                             title,
@@ -188,13 +189,14 @@ class WriteActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, S
                             content,
                             selectedGroupId!!.toInt(),
                             date,
-                    "37.561878",
-                    "127.066622"
+                    "37.55521",
+                    "127.0628"
                         )
 
                     try {
                         if (boardImage != null) {
-                            var response = boardRepository.createBoard(boardDTO, boardImage)
+                            var response = boardRepository.createBoard(boardDTO, boardImage!!)
+                            Log.e("response", response.toString())
                         } else {
                             Toast.makeText(this@WriteActivity, "사진을 등록해주세요", Toast.LENGTH_SHORT).show()
                         }
