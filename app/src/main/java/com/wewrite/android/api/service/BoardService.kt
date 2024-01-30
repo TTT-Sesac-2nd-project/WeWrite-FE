@@ -35,8 +35,8 @@ interface BoardService {
     @Multipart
     @POST("board/")
     suspend fun createBoard(
-        @Part multipartFiles: MultipartBody.Part?,
-        @Part("boardDTO") boardDTO: BoardRequest.BoardData
+        @Part multipartFiles: MultipartBody.Part,
+        @Part("boardDTO") boardDTO: BoardRequest.BoardData?
     ) : BaseResponse
 
     @GET("board/groups/{groupId}")

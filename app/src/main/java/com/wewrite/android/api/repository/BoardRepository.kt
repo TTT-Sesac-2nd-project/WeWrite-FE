@@ -18,7 +18,7 @@ class BoardRepository(private val boardService: BoardService) {
         return boardService.getOneBoard(boardId)
     }
 
-    suspend fun createBoard(boardData: BoardRequest.BoardData, boardImage: MultipartBody.Part?): BaseResponse {
+    suspend fun createBoard(boardData: BoardRequest.BoardData, boardImage: MultipartBody.Part): BaseResponse {
         return boardService.createBoard(boardImage, boardData)
     }
 

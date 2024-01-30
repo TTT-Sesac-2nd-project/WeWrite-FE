@@ -13,7 +13,7 @@ data class MapResponse (
     data class MapList(
         @SerializedName("boardContent") val boardContent: String,
         @SerializedName("boardCreatedDate") val boardCreatedDate: String,
-        @SerializedName("boardId") val boardId: Int,
+        @SerializedName("boardId") val boardId: Long,
         @SerializedName("boardImage") val boardImage: String,
         @SerializedName("boardLat") val boardLat: Double,
         @SerializedName("boardLng") val boardLng: Double,
